@@ -2,29 +2,31 @@
 Ansiudad es un juego de mesa que aborda la ecoansiedad y busca convertir la preocupación por el cambio climático en acción. Creado por Gabriel Sánchez y Andrea Norzagaray. Esta es la versión 2 del sitio web pensada para informar sobre el juego y a la vez ser un facilitador o "expansión" a través de IA.
 
 
-# Setup (borrowed from Three.js Journey)
-Download [Node.js](https://nodejs.org/en/download/).
+# Setup (prestado de Three.js Journey)
+Descarga [Node.js](https://nodejs.org/en/download/).
 
-It's recommended to use Node version 20 or higher to avoid bugs and errors installing dependencies.
+Se recomienda usar la versión 20 o mayor de "Node" para prevenir bugs y errores, especialmente al descargar dependencias.
 
-Run this followed commands:
+Corre los siguientes comandos en tu terminal:
 
 ``` bash
-# Install dependencies (only the first time)
+# Instalar dependencias (sólo se hace la primera vez al descargar el repositorio)
 npm install
 
-# Run the local server at localhost:8080
+# Inicializa un servidor local en el puerto "localhost:8080"
 npm run dev
 
-# Build for production in the dist/ directory
+# Compila los archivos para publicar el proyecto en la carpeta "dist/"
 npm run build
 ```
 
 
-=====================================
+***
+
+
 Este proyecto está siendo construido por el boilerplate "Ometeotl" basado en la configuración enseñada por [Bruno Simon](https://bruno-simon.com/) en su curso [ThreeJS.Journey](https://threejs-journey.com/), diseñado por [Alejandro Alvarado](https://andrew.studio/) y actualmente en construcción.
 
-###### 🚧🚧🚧 Aviso 🚧🚧🚧
+## 🚧🚧🚧 Aviso 🚧🚧🚧
 Muchas funcionalidades del boilerplate "Ometeotl" no están listas y la estructura del proyecto puede cambiar sobre la marcha.
 
 
