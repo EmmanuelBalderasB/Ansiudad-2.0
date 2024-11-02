@@ -23,8 +23,13 @@ export default [
         path: 'textures/dirt/normal.jpg'
     },
     {
-        name: 'foxModel',
+        name: 'buildingModel',
         type: 'gltfModel',
-        path: 'models/Fox/glTF/Fox.gltf'
+        path: 'models/building/building.gltf'
+    },
+    {
+        name: 'portalModel',
+        type: 'gltfModel',
+        path: 'models/portal/portal.glb'
     }
 ]

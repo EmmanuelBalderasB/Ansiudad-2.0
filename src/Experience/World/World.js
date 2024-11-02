@@ -1,8 +1,9 @@
 import Experience from '../Experience.js'
 import Environment from './Environment.js'
 import Floor from './Floor.js'
-import Fox from './Fox.js'
+import Building from './Building.js'
 import ShaderTest from './ShaderTest.js'
+import Portal from './Portal.js'
 
 export default class World
 {
@@ -17,15 +18,18 @@ export default class World
         {
             // Setup
             this.floor = new Floor()
-            this.fox = new Fox()
+            this.building = new Building()
             this.environment = new Environment()
             this.shaderTest = new ShaderTest()
+            this.portal = new Portal()
         })
     }
 
     update()
     {
-        if(this.fox)
-            this.fox.update()
+        if(this.building)
+            this.building.update()
+        if (this.portal)
+            this.portal.update()
     }
 }
