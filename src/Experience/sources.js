@@ -35,6 +35,6 @@ export default [
     {
         name: 'portalModelCone',
         type: 'gltfModel',
-        path: 'models/Cone-Portal/CONE.glb'
+        path: 'models/Cone/cone2.glb'
     }
 ]
