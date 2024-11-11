@@ -9,7 +9,7 @@ export default class Cone {
         this.resources = this.experience.resources
         this.time = this.experience.time
         this.debug = this.experience.debug
-        
+
         // Debug
         if (this.debug.active) {
             this.debugFolder = this.debug.ui.addFolder('portal-cone')
@@ -30,6 +30,7 @@ export default class Cone {
         this.model.traverse((child) => {
             if (child instanceof THREE.Mesh) {
                 child.castShadow = true
+                child.material.side = THREE.DoubleSide
             }
         })
     }
