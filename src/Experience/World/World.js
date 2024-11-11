@@ -4,7 +4,7 @@ import Floor from './Floor.js'
 import Building from './Building.js'
 import ShaderTest from './ShaderTest.js'
 import Portal from './Portal.js'
-
+import Cone from './Cone.js'
 export default class World
 {
     constructor()
@@ -22,6 +22,7 @@ export default class World
             this.environment = new Environment()
             this.shaderTest = new ShaderTest()
             this.portal = new Portal()
+            this.cone = new Cone()
         })
     }
 
