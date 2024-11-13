@@ -1,5 +1,6 @@
 #define PI 3.1415926535897932384626433832795
 
+uniform float uAnimate;
 varying vec2 vUv;
 
 float random(vec2 st)
@@ -246,7 +247,7 @@ void main()
     // float strength = 1.0 - abs(cnoise(vUv * 10.0));
 
     // // Pattern 49
-    float strength = sin(cnoise(vUv * 10.0) * 20.0);
+    float strength = sin((cnoise(vUv * 3.0) * 20.0) + uAnimate);
 
     // Pattern 50
     // float strength = step(0.9, sin(cnoise(vUv * 10.0) * 20.0));

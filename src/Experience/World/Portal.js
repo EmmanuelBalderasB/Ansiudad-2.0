@@ -5,7 +5,6 @@ import Experience from '../Experience.js'
 export default class Portal {
     constructor() {
         this.experience = new Experience()
-        this.scene = this.experience.scene
         this.resources = this.experience.resources
         this.time = this.experience.time
         this.debug = this.experience.debug
@@ -19,15 +18,11 @@ export default class Portal {
         this.resource = this.resources.items.portalModel
 
         this.setModel()
-        this.setAnimation()
     }
 
     setModel() {
-        this.model = this.resource.scene
-        //this.model.scale.set(0.2, 0.2, 0.2)
+        this.model = this.resource.scene.clone()
         this.model.position.set(1, 0.4, 1)
-        this.scene.add(this.model)
-        console.log(this.model);
         this.model.traverse((child) => {
             if (child instanceof THREE.Mesh) {
                 child.castShadow = true
@@ -35,51 +30,7 @@ export default class Portal {
         })
     }
 
-    setAnimation() {
-        // this.animation = {}
-
-        // // Mixer
-        // this.animation.mixer = new THREE.AnimationMixer(this.model)
-
-        // // Actions
-        // this.animation.actions = {}
-
-        // this.animation.actions.idle = this.animation.mixer.clipAction(this.resource.animations[0])
-        // this.animation.actions.walking = this.animation.mixer.clipAction(this.resource.animations[1])
-        // this.animation.actions.running = this.animation.mixer.clipAction(this.resource.animations[2])
-
-        // this.animation.actions.current = this.animation.actions.idle
-        // this.animation.actions.current.play()
-
-        // // Play the action
-        // this.animation.play = (name) =>
-        // {
-        //     const newAction = this.animation.actions[name]
-        //     const oldAction = this.animation.actions.current
-
-        //     newAction.reset()
-        //     newAction.play()
-        //     newAction.crossFadeFrom(oldAction, 1)
-
-        //     this.animation.actions.current = newAction
-        // }
-
-        // Debug
-        // if(this.debug.active)
-        // {
-        //     const debugObject = {
-        //         playIdle: () => { this.animation.play('idle') },
-        //         playWalking: () => { this.animation.play('walking') },
-        //         playRunning: () => { this.animation.play('running') }
-        //     }
-        //     this.debugFolder.add(debugObject, 'playIdle')
-        //     this.debugFolder.add(debugObject, 'playWalking')
-        //     this.debugFolder.add(debugObject, 'playRunning')
-        // }
-    }
-
     update() {
-        // this.model.position.x = Math.sin(this.time.elapsed * 0.005)
-        // this.model.position.z = Math.cos(this.time.elapsed * 0.005)
+        // 
     }
 }

@@ -1,7 +1,7 @@
 import Experience from '../Experience.js'
 import Environment from './Environment.js'
 import CityScene from './Scenes/CityScene.js'
-import Portal from './Portal.js'
+import PortalScene from './Scenes/PortalScene.js'
 import Cone from './Cone.js'
 export default class World
 {
@@ -16,11 +16,10 @@ export default class World
         {
             // Setup
             this.environment = new Environment()
-            this.portal = new Portal()
-            this.cone = new Cone()
+            // this.cone = new Cone()
 
             this.CityScene = new CityScene()
-            // this.PortalScene = new PortalScene()
+            this.PortalScene = new PortalScene()
             // this.TunnelScene = new TunnelScene()
 
             this.positionScenes()
@@ -28,8 +27,11 @@ export default class World
     }
     
     positionScenes() {
-        this.CityScene.group.position.x = -7
-        this.CityScene.group.position.z = -7
+        this.CityScene.group.position.x = -10
+        this.CityScene.group.position.z = -5
+        
+        // this.PortalScene.group.position.x = -2
+        // this.PortalScene.group.position.z = -10
     }
 
     update()
@@ -40,8 +42,8 @@ export default class World
         if (this.CityScene)
             this.CityScene.update()
         
-    //     if (this.PortalScene)
-    //         this.PortalScene.update()
+        if (this.PortalScene)
+            this.PortalScene.update()
         
     //     if (this.TunnelScene)
     //         this.TunnelScene.update()

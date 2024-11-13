@@ -27,7 +27,7 @@ export default class Building
 
     setModel()
     {
-        this.model = this.resource.scene
+        this.model = this.resource.scene.clone()
         this.model.scale.set(0.2, 0.2, 0.2)
         this.model.position.set(1, .65, 1)
         // this.scene.add(this.model)
