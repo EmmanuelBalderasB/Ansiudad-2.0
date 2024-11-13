@@ -193,7 +193,14 @@ void main()
 
     // // Pattern 49
     vec2 uv = vUv;
+    vec2 uvMirror = vec2(1. - uv.x, uv.y);
+
     uv.x += uAnimate * 0.05;
+    uvMirror.x += uAnimate * 0.05;
+    float mirrorStep = step(0.5, vUv.x);
+    uv = mix(uv, uvMirror, mirrorStep);
+    uv = rotate(uv, uAnimate * 0.01, vec2(0.5));
+
     float strength = sin((cnoise(uv * 0.5) * 50.0) + uAnimate);
 
     // Pattern 50
@@ -201,7 +208,7 @@ void main()
 
     // Final color
     vec3 bgColor = vec3(vUv.y) * 0.5;
-    vec3 uvColor = vec3(vUv, 1.0);
+    vec3 uvColor = vec3(vUv.y, 1.0, 1.0);
     vec3 mixedColor = mix(bgColor, uvColor, strength);
     // vec3 mixedColor = vec3(vUv.x);
 
