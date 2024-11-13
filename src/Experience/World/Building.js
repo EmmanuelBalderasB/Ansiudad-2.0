@@ -30,7 +30,7 @@ export default class Building
         this.model = this.resource.scene
         this.model.scale.set(0.2, 0.2, 0.2)
         this.model.position.set(1, .65, 1)
-        this.scene.add(this.model)
+        // this.scene.add(this.model)
 
         this.model.traverse((child) =>
         {
@@ -87,7 +87,7 @@ export default class Building
 
     update()
     {
-        this.model.position.x = Math.sin(this.time.elapsed * 0.005)
-        this.model.position.z = Math.cos(this.time.elapsed * 0.005)
+        // this.model.position.x = Math.sin(this.time.elapsed * 0.005)
+        // this.model.position.z = Math.cos(this.time.elapsed * 0.005)
     }
 }

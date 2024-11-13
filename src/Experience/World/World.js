@@ -1,8 +1,6 @@
 import Experience from '../Experience.js'
 import Environment from './Environment.js'
-import Floor from './Floor.js'
-import Building from './Building.js'
-import ShaderTest from './ShaderTest.js'
+import CityScene from './Scenes/CityScene.js'
 import Portal from './Portal.js'
 import Cone from './Cone.js'
 export default class World
@@ -17,20 +15,35 @@ export default class World
         this.resources.on('ready', () =>
         {
             // Setup
-            this.floor = new Floor()
-            this.building = new Building()
             this.environment = new Environment()
-            this.shaderTest = new ShaderTest()
             this.portal = new Portal()
             this.cone = new Cone()
+
+            this.CityScene = new CityScene()
+            // this.PortalScene = new PortalScene()
+            // this.TunnelScene = new TunnelScene()
+
+            this.positionScenes()
         })
+    }
+    
+    positionScenes() {
+        this.CityScene.group.position.x = -7
+        this.CityScene.group.position.z = -7
     }
 
     update()
     {
-        if(this.building)
-            this.building.update()
         if (this.portal)
             this.portal.update()
+        
+        if (this.CityScene)
+            this.CityScene.update()
+        
+    //     if (this.PortalScene)
+    //         this.PortalScene.update()
+        
+    //     if (this.TunnelScene)
+    //         this.TunnelScene.update()
     }
 }
