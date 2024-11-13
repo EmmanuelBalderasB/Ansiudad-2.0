@@ -22,7 +22,7 @@ export default class Portal {
 
     setModel() {
         this.model = this.resource.scene.clone()
-        this.model.position.set(1, 0.4, 1)
+        this.model.position.set(0, 0.4, 0)
         this.model.traverse((child) => {
             if (child instanceof THREE.Mesh) {
                 child.castShadow = true

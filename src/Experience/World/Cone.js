@@ -25,9 +25,11 @@ export default class Cone {
 
     setModel() {
         this.model = this.resource.scene
-        this.model.position.set(3, 0, 1)
-        this.scene.add(this.model)
-        console.log('cone', this.model);
+        this.model.scale.setScalar(5)
+        this.model.rotation.z = Math.PI / 2;
+        this.model.rotation.y = Math.PI / -2;
+        this.model.position.z = 7;
+
 
         this.material = new THREE.ShaderMaterial({
             vertexShader: planeVertexShader,

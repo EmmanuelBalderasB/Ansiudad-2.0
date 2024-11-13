@@ -19,7 +19,7 @@ export default class PortalScene extends BaseScene {
         this.plane = new PortalPlane()
         this.group.add(this.plane.mesh)
         this.plane.mesh.rotation.y = Math.PI / 2;
-        this.plane.mesh.position.set(1, 0.5, 1);
+        this.plane.mesh.position.set(0, 0.5, 0);
         
     }
 

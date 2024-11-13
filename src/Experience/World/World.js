@@ -32,6 +32,7 @@ export default class World
 
         this.TunnelScene.group.position.x = -2
         this.TunnelScene.group.position.z = -5
+        this.TunnelScene.group.rotateY(Math.PI)
     }
 
     update()

@@ -29,7 +29,7 @@ export default class Building
     {
         this.model = this.resource.scene.clone()
         this.model.scale.set(0.2, 0.2, 0.2)
-        this.model.position.set(1, .65, 1)
+        this.model.position.set(0, .65, 0)
         // this.scene.add(this.model)
 
         this.model.traverse((child) =>
