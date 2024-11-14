@@ -1,11 +1,10 @@
 export default async function sendPrompt(e) {
     e.preventDefault();
     console.log('Button clicked');
-    //const inputField = document.querySelector('inputField');
-    //const textBox = document.querySelector('textBox');
-    //const btn = document.querySelector('submitBtn');
+    const inputField = document.querySelector('.inputField');
+    const textBox = document.querySelector('.textBox');
 
-    const prompt = "test"//inputField.value;
+    const prompt = inputField.value;
     prompt.trim();
     try {
         const response = await fetch('https://h3lv2miu1x1kda-3000.proxy.runpod.net/api/generate', {

@@ -10,6 +10,7 @@ import World from './World/World.js'
 import Resources from './Utils/Resources.js'
 
 import sources from './sources.js'
+import sendPrompt from '../sendPrompt.js'
 
 let instance = null
 
@@ -43,6 +44,9 @@ export default class Experience
         this.renderer = new Renderer()
         this.world = new World()
 
+        // UI interactions
+        this.llamaSetup();
+
         // Resize event
         this.sizes.on('resize', () =>
         {
@@ -58,6 +62,11 @@ export default class Experience
 
     initTaxi() {
         this.taxi = new Taxi.Core();
+    }
+
+    llamaSetup() {
+        const btn = document.querySelector('.submitBtn');
+        btn.addEventListener('click', sendPrompt);
     }
 
     resize()
