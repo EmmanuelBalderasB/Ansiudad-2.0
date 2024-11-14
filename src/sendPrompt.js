@@ -5,16 +5,20 @@ export default async function sendPrompt(e) {
     const textBox = document.querySelector('.textBox');
 
     const prompt = inputField.value;
+    const _numberOfTeams = 2//numOfTeamsField.value;
+    const _numberOfRoles = 5//numOfPlayersField.value;
     prompt.trim();
     try {
-        const response = await fetch('https://h3lv2miu1x1kda-3000.proxy.runpod.net/api/generate', {
+        const response = await fetch('https://h3lv2miu1x1kda-3000.proxy.runpod.net/api/generateEvent', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 prompt: prompt,
-                stream: false
+                stream: false,
+                numberOfTeams: _numberOfTeams,
+                numberOfRoles: _numberOfRoles,
             })
         });
 
