@@ -22,7 +22,7 @@ export default class Camera
     setInstance()
     {
         this.instance = new THREE.PerspectiveCamera(35, this.sizes.width / this.sizes.height, 0.1, 100)
-        this.instance.position.set(10, 4, 0)
+        this.instance.position.set(0, 4, 10)
         this.vectorLookAt = new THREE.Vector3(0, 0, 0)
         this.instance.lookAt(this.vectorLookAt);
         this.scene.add(this.instance)
@@ -42,10 +42,12 @@ export default class Camera
 
     addHandlers() {
         this.appState.on('stepChange', (newStep) => {
-            if (newStep == 4) {
+            if (newStep == 3) {
                 this.moveToPortalScene();
-            } else if (newStep == 6) {
+            } else if (newStep == 5) {
                 this.moveToTunnelScene();
+            } else if (newStep == 9) {
+                this.moveToCityScene();
             }
         });
     }
@@ -60,6 +62,11 @@ export default class Camera
         console.log('moveToTunnelScene');
         gsap.to(this.instance.position, { x: -2, y: -20, z: 0, duration: 2, ease: "power4.out" });
         gsap.to(this.vectorLookAt, { x: -10, y: -20, z: 0, duration: 1.2, ease: "power4.out" });
+    }
+
+    moveToCityScene() {
+        gsap.to(this.instance.position, { x: 0, y: 4, z: 10, duration: 2, ease: "power4.out" });
+        gsap.to(this.vectorLookAt, { x: 0, y: 0, z: 0, duration: 1.2, ease: "power4.out" });
     }
 
     update()
