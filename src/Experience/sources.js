@@ -23,6 +23,11 @@ export default [
         path: 'textures/dirt/normal.jpg'
     },
     {
+        name: 'portalColorTexture',
+        type: 'texture',
+        path: 'textures/portal/portalColor.png'
+    },
+    {
         name: 'buildingModel',
         type: 'gltfModel',
         path: 'models/building/building.gltf'

@@ -16,6 +16,8 @@ export default class Portal {
 
         // Resource
         this.resource = this.resources.items.portalModel
+        this.setTextures()
+        this.setMaterial()
 
         this.setModel()
     }
@@ -27,6 +29,23 @@ export default class Portal {
             if (child instanceof THREE.Mesh) {
                 child.castShadow = true
             }
+        })
+    }
+    setTextures()
+    {
+        this.textures = {}
+
+        this.textures.color = this.resources.items.portalColorTexture
+        this.textures.color.colorSpace = THREE.SRGBColorSpace
+        this.textures.color.repeat.set(1.5, 1.5)
+        this.textures.color.wrapS = THREE.RepeatWrapping
+        this.textures.color.wrapT = THREE.RepeatWrapping
+    }
+    setMaterial()
+    {
+        this.material = new THREE.MeshStandardMaterial({
+            map: this.textures.color,
+            //normalMap: this.textures.normal
         })
     }
 

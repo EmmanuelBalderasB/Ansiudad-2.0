@@ -13,10 +13,18 @@ export default class CityScene extends BaseScene {
 
     generateBuildings() {
         let buildings = []
-        for (let i = 0; i < 30; i++) {
-            buildings.push(new Building())
+        
+        for (let x = -5; x < 5; x+=1) {
+            for (let z = -5; z < 5; z+=1) {
+                const i = new Building(x+z*10)
+                i.model.position.set(x,0, z)
+                i.model.rotation.y = Math.random() > .5 ? Math.PI / 2 : 0
+                buildings.push(i)
+               
+            }
         }
         this.group.add(...buildings.map(building => building.model))
+        
     }
 
     initScene() {
@@ -30,7 +38,15 @@ export default class CityScene extends BaseScene {
     }
 
     update() {
-        if(this.building) this.building.update()
+        /* if(this.group) {
+            for (const child of this.group.children) {
+                if (!child.material) {
+
+
+                }
+
+            }
+        } */
 
     }
 }

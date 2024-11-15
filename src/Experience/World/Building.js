@@ -4,7 +4,7 @@ import Experience from '../Experience.js'
 
 export default class Building
 {
-    constructor()
+    constructor(_id)
     {
         this.experience = new Experience()
         this.scene = this.experience.scene
@@ -23,7 +23,7 @@ export default class Building
 
         // Resource
         this.resource = this.resources.items[type]
-
+        this.id = _id
         this.setModel()
         this.setAnimation()
     }
@@ -32,8 +32,9 @@ export default class Building
     {
         this.model = this.resource.scene.clone()
         //this.model.scale.set(0.2, 0.2, 0.2)
-        this.model.position.set(Math.random() * 5 - 2.5 , 0, Math.random() * 5 - 2.5)
-        // this.scene.add(this.model)
+        this.model.position.set(this.id, 0, this.id)
+        const rotations = [0, Math.PI / 2, Math.PI, Math.PI * 1.5]
+        this.model.rotation.y = rotations[Math.floor(Math.random() * rotations.length)]
         const colors = [0x8062cc, 0x5e1fff, 0xb8a5e8]
         this.model.traverse((child) =>
         {
@@ -92,7 +93,5 @@ export default class Building
 
     update()
     {
-        // this.model.position.x = Math.sin(this.time.elapsed * 0.005)
-        // this.model.position.z = Math.cos(this.time.elapsed * 0.005)
     }
 }
