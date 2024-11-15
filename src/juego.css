@@ -15,7 +15,7 @@
     height: 100%;
     border: 1px solid rgba(255,255,255, 0.5);
     box-sizing: border-box;
-    transition: all 400ms, cubic-bezier(0.33, 1, 0.68, 1);
+    transition: all 400ms cubic-bezier(0.33, 1, 0.68, 1);
 
     /* animating properties */
     pointer-events: none;
@@ -25,7 +25,7 @@
 }
 
     .slideContainer.show {
-        transition: all 800ms, cubic-bezier(0.33, 1, 0.68, 1);
+        transition: all 800ms cubic-bezier(0.33, 1, 0.68, 1);
         pointer-events: auto;
         opacity: 1;
         filter: blur(0px);
