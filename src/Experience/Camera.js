@@ -46,7 +46,7 @@ export default class Camera
                 this.moveToPortalScene();
             } else if (newStep == 5) {
                 this.moveToTunnelScene();
-            } else if (newStep == 9) {
+            } else if (newStep == 7) {
                 this.moveToCityScene();
             }
         });

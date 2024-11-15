@@ -10,7 +10,7 @@ export default class AppState extends EventEmitter
         this.sizes = this.experience.sizes
         this.scene = this.experience.scene
         this.canvas = this.experience.canvas
-        this.totalSteps = 10;
+        this.totalSteps = 8;
 
         this.initStepsManager();
     }

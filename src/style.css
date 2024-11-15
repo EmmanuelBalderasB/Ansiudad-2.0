@@ -77,13 +77,16 @@ main {
     align-items: flex-end;
 }
 
-    #llama-helper img {
-        border-radius: 50%;
-        width: 100%;
-    }
-
     #llama-helper .left-wrapper {
         width: 150px;
+    }
+
+    #llama-helper img {
+        display: block;
+        width: 150px;
+        height: 150px;
+        background-color: rgba(200,200,200, 0.5);
+        border-radius: 50%;
     }
 
     #llama-helper .right-wrapper {
