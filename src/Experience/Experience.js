@@ -36,6 +36,7 @@ export default class Experience
         this.canvas = _canvas
 
         // Setup
+        this.appState = new AppState()
         this.debug = new Debug()
         this.sizes = new Sizes()
         this.time = new Time()
@@ -44,7 +45,6 @@ export default class Experience
         this.camera = new Camera()
         this.renderer = new Renderer()
         this.world = new World()
-        this.appState = new AppState()
 
         // UI interactions
         this.llamaSetup();
