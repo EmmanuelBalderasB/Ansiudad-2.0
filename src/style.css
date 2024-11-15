@@ -94,6 +94,7 @@ main {
         border-radius: 20px;
         background-color: rgba(20,20,20, 0.5);
         backdrop-filter: blur(6px);
+        color: #fff;
     }
 
         #llama-helper .text-globe h2 {
@@ -200,4 +201,5 @@ main {
 /* Global UI */
 .regular-btn {
     padding: 6px 10px;
+    cursor: pointer;
 }

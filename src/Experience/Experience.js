@@ -8,6 +8,7 @@ import Camera from './Camera.js'
 import Renderer from './Renderer.js'
 import World from './World/World.js'
 import Resources from './Utils/Resources.js'
+import AppState from './Utils/AppState.js'
 
 import sources from './sources.js'
 import sendPrompt from '../sendPrompt.js'
@@ -43,6 +44,7 @@ export default class Experience
         this.camera = new Camera()
         this.renderer = new Renderer()
         this.world = new World()
+        this.appState = new AppState()
 
         // UI interactions
         this.llamaSetup();
@@ -72,11 +74,6 @@ export default class Experience
         {
             this.resize()
         })
-
-        // click tester
-        window.addEventListener('click', _ => {
-            console.log('click');
-        });
     }
 
     resize()
