@@ -19,6 +19,7 @@ export default class AppState extends EventEmitter
 
     addHandlers() {
         this.events.on('appStateNextStep', this.nextStep.bind(this));
+        this.events.on('appStateStep', this.goToStep.bind(this));
     }
 
     initStepsManager() {
@@ -32,6 +33,14 @@ export default class AppState extends EventEmitter
 
     nextStep() {
         this.currentStep++;
+        this.currentStep %= this.totalSteps;
+        // this.stepsVisualizer.innerText = this.currentStep;
+        
+        this.trigger('stepChange', [this.currentStep]);
+    }
+
+    goToStep(step) {
+        this.currentStep = step;
         this.currentStep %= this.totalSteps;
         // this.stepsVisualizer.innerText = this.currentStep;
         

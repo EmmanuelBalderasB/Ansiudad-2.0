@@ -54,19 +54,19 @@ export default class Camera
 
     moveToPortalScene() {
         console.log('moveToPortalScene');
-        gsap.to(this.instance.position, { x: 0, y: -18.5, z: 8, duration: 2, ease: "power4.out" });
-        gsap.to(this.vectorLookAt, { x: -1.5, y: -19.5, duration: 1.2, ease: "power4.out" });
+        gsap.to(this.instance.position, { x: 0, y: -18.5, z: 8, duration: 2, ease: "power2.inOut" });
+        gsap.to(this.vectorLookAt, { x: -1.5, y: -19.5, duration: 1.2, ease: "power2.inOut" });
     }
     
     moveToTunnelScene() {
         console.log('moveToTunnelScene');
-        gsap.to(this.instance.position, { x: 0, y: -20, z: -2, duration: 2, ease: "power4.out" });
-        gsap.to(this.vectorLookAt, { x: 0, y: -20, z: -10, duration: 1.2, ease: "power4.out" });
+        gsap.to(this.instance.position, { x: 0, y: -20, z: -2, duration: 2, ease: "power2.inOut" });
+        gsap.to(this.vectorLookAt, { x: 0, y: -20, z: -10, duration: 1.2, ease: "power2.inOut" });
     }
 
     moveToCityScene() {
-        gsap.to(this.instance.position, { x: 0, y: 4, z: 10, duration: 2, ease: "power4.out" });
-        gsap.to(this.vectorLookAt, { x: 0, y: 0, z: 0, duration: 1.2, ease: "power4.out" });
+        gsap.to(this.instance.position, { x: 0, y: 4, z: 10, duration: 2, ease: "power2.inOut" });
+        gsap.to(this.vectorLookAt, { x: 0, y: 0, z: 0, duration: 1.2, ease: "power2.inOut" });
     }
 
     update()

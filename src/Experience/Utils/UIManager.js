@@ -28,19 +28,29 @@ export default class UIManager extends EventEmitter
 
     initTriggers() {
         this.nextStepTriggers = [];
+        this.goToLLamaTriggers = [];
 
         this.startButton = document.getElementById('firstStepBtn');
         this.nextStepTriggers.push(this.startButton);
         const nextButtons = document.querySelectorAll('.goToNextStepBtn');
         nextButtons.forEach(element => { this.nextStepTriggers.push(element) });
-        
         this.nextStepTriggers.forEach(element => { 
             element.addEventListener('click', this.fireNextStep.bind(this));
-         });
+        });
+
+        const goToLlamaBtns = document.querySelectorAll('.goToLlamaGeneration');
+        goToLlamaBtns.forEach(element => { this.goToLLamaTriggers.push(element) });
+        this.goToLLamaTriggers.forEach(element => { 
+            element.addEventListener('click', this.fireLlamaStep.bind(this));
+        });
     }
 
     fireNextStep() {
         this.events.trigger('nextStep');
+    }
+    
+    fireLlamaStep() {
+        this.events.trigger('goToStep', [5]);
     }
 
 
