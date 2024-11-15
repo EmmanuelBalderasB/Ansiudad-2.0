@@ -16,7 +16,7 @@ export default class AppState extends EventEmitter
 
     initStepsManager() {
         this.mainButton = document.getElementById('nextStepHelper');
-        this.mainButton.addEventListener('click', this.nextStep.bind(this));
+        if (this.mainButton) this.mainButton.addEventListener('click', this.nextStep.bind(this));
 
         this.stepsVisualizer = document.getElementById('stepsVisualizer');
 
