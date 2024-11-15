@@ -3,7 +3,7 @@ import Experience from '../../Experience.js'
 import BaseScene from './BaseScene.js'
 import Floor from '../Floor.js'
 import Building from '../Building.js'
-
+import Axolotl from '../Axolotl.js'
 export default class CityScene extends BaseScene {
     constructor() {
         super('CityScene')
@@ -13,9 +13,9 @@ export default class CityScene extends BaseScene {
 
     generateBuildings() {
         let buildings = []
-        
-        for (let x = -5; x < 5; x+=1) {
-            for (let z = -5; z < 5; z+=1) {
+        const range = 3;
+        for (let x = -range; x < range; x+=1) {
+            for (let z = -range; z < range; z+=1) {
                 const i = new Building(x+z*10)
                 i.model.position.set(x,0, z)
                 i.model.rotation.y = Math.random() > .5 ? Math.PI / 2 : 0
@@ -32,6 +32,8 @@ export default class CityScene extends BaseScene {
         this.floor = new Floor()
         this.group.add(this.floor.mesh)
 
+        this.axolotl = new Axolotl()
+        this.group.add(this.axolotl.model)
         // Buildings
         this.generateBuildings()
 

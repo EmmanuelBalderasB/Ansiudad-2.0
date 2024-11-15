@@ -82,4 +82,9 @@ export default [
         type: 'gltfModel',
         path: 'models/building/buildingH.glb'
     },
+    {
+        name: 'axolotlModel',
+        type: 'gltfModel',
+        path: 'models/axolotl/axolotl.glb'
+    }
 ]

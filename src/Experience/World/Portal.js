@@ -15,7 +15,8 @@ export default class Portal {
         }
 
         // Resource
-        this.resource = this.resources.items.portalModel
+        this.resource1 = this.resources.items.portalModel
+        this.resource2 = this.resources.items.portalColorTexture
         this.setTextures()
         this.setMaterial()
 
@@ -23,7 +24,7 @@ export default class Portal {
     }
 
     setModel() {
-        this.model = this.resource.scene.clone()
+        this.model = this.resource1.scene.clone()
         this.model.position.set(0, -1, 0)
         this.model.traverse((child) => {
             if (child instanceof THREE.Mesh) {
