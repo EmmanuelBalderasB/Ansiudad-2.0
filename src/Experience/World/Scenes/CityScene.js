@@ -11,14 +11,21 @@ export default class CityScene extends BaseScene {
         this.initScene();
     }
 
+    generateBuildings() {
+        let buildings = []
+        for (let i = 0; i < 10; i++) {
+            buildings.push(new Building())
+        }
+        this.group.add(...buildings.map(building => building.model))
+    }
+
     initScene() {
         // Floor
         this.floor = new Floor()
         this.group.add(this.floor.mesh)
 
         // Buildings
-        this.building = new Building()
-        this.group.add(this.building.model)
+        this.generateBuildings()
 
     }
 

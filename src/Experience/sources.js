@@ -36,5 +36,20 @@ export default [
         name: 'portalModelCone',
         type: 'gltfModel',
         path: 'models/Cone/cone2.glb'
+    },
+    {
+        name: 'buildingAModel',
+        type: 'gltfModel',
+        path: 'models/building/buildingA.glb'
+    },
+    {
+        name: 'buildingBModel',
+        type: 'gltfModel',
+        path: 'models/building/buildingB.glb'
+    },
+    {
+        name: 'buildingCModel',
+        type: 'gltfModel',
+        path: 'models/building/buildingC.glb'
     }
 ]

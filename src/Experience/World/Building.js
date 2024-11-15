@@ -17,9 +17,12 @@ export default class Building
         {
             this.debugFolder = this.debug.ui.addFolder('building')
         }
+        
+        const typeList = ['buildingAModel', 'buildingBModel', 'buildingCModel']
+        const type = typeList[Math.floor(Math.random() * typeList.length)]
 
         // Resource
-        this.resource = this.resources.items.buildingModel
+        this.resource = this.resources.items[type]
 
         this.setModel()
         this.setAnimation()
@@ -28,8 +31,8 @@ export default class Building
     setModel()
     {
         this.model = this.resource.scene.clone()
-        this.model.scale.set(0.2, 0.2, 0.2)
-        this.model.position.set(0, .65, 0)
+        //this.model.scale.set(0.2, 0.2, 0.2)
+        this.model.position.set(Math.random() * 5 - 2.5 , 0, Math.random() * 5 - 2.5)
         // this.scene.add(this.model)
 
         this.model.traverse((child) =>

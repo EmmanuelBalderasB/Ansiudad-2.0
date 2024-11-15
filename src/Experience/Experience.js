@@ -66,7 +66,7 @@ export default class Experience
 
     llamaSetup() {
         const btn = document.querySelector('.submitBtn');
-        btn.addEventListener('click', sendPrompt);
+        //btn.addEventListener('click', sendPrompt);
     }
 
     resize()
