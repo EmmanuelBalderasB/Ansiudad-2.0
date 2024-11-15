@@ -86,7 +86,7 @@ export default class UIManager extends EventEmitter
         const element = document.getElementById('llama-helper');
         if (element) {
             if (newStep == 0) {
-                element.style.display = 'block';
+                element.style.display = 'flex';
             } else {
                 element.style.display = 'none';
             }

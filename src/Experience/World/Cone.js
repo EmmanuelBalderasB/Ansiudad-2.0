@@ -35,6 +35,7 @@ export default class Cone {
             vertexShader: planeVertexShader,
             fragmentShader: planeFragmentShader,
             side: THREE.DoubleSide,
+            transparent: true,
             uniforms: {
                 uAnimate: { value: 0 },
             }

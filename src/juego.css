@@ -112,8 +112,8 @@
         width: 400px;
         padding: 40px 30px;
         border-radius: 20px;
-        background-color: rgba(20,20,20, 0.5);
-        backdrop-filter: blur(10px);
+        background-color: rgba(20,20,20, 0.75);
+        backdrop-filter: blur(20px);
     }
 
 
@@ -162,7 +162,7 @@
 
     .llama-instructions .text-wrapper {
         width: 400px;
-        height: 60%;
+        /* height: 60%; */
         padding: 40px 30px;
         border-radius: 20px;
         background-color: rgba(20,20,20, 0.5);
@@ -265,8 +265,8 @@
         flex-direction: column;
         gap: 24px;
         border-radius: 20px;
-        background-color: rgba(150,150,150, 0.5);
-        backdrop-filter: blur(10px);
+        background-color: rgba(94,56,129, 0.75);
+        backdrop-filter: blur(20px);
         overflow: hidden;
     }
     .cards-container .card-wrapper.fullHeight {
