@@ -29,8 +29,11 @@ export default class World
     }
     
     positionScenes() {
-        this.PortalScene.group.position.y = -10
-        this.TunnelScene.group.position.y = -10
+        this.CityScene.group.rotateY(Math.PI / 4)
+
+        this.PortalScene.group.position.y = -20
+
+        this.TunnelScene.group.position.y = -20
         this.TunnelScene.group.position.x = -5
         this.TunnelScene.group.rotateY(Math.PI / 2)
     }

@@ -27,6 +27,7 @@ export default class TunnelPlane
             vertexShader: planeVertexShader,
             fragmentShader: planeFragmentShader,
             side: THREE.DoubleSide,
+            transparent: true,
             uniforms: {
                 uAnimate: { value: 0 },
             }
