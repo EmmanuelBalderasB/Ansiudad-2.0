@@ -31,7 +31,11 @@ export default class UIManager extends EventEmitter
 
     switchViews(newStep) {
         this.views[this.currentView].classList.remove('show');
+        this.views[this.currentView].classList.remove('noBlur');
         this.views[newStep].classList.add('show');
+        setTimeout(_ => {
+            this.views[newStep].classList.add('noBlur');
+        }, 200);
 
         this.currentView = newStep;
     }

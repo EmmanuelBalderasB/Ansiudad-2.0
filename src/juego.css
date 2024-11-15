@@ -3,8 +3,7 @@
     position: relative;
     width: 100%;
     height: 100%;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    overflow: hidden;
 }
 
 .slideContainer {
@@ -13,9 +12,9 @@
     left: 0;
     width: 100%;
     height: 100%;
-    border: 1px solid rgba(255,255,255, 0.5);
+    /* border: 1px solid rgba(255,255,255, 0.5); */
     box-sizing: border-box;
-    transition: all 400ms cubic-bezier(0.33, 1, 0.68, 1);
+    transition: all 300ms cubic-bezier(0.22, 1, 0.36, 1);
 
     /* animating properties */
     pointer-events: none;
@@ -25,11 +24,14 @@
 }
 
     .slideContainer.show {
-        transition: all 800ms cubic-bezier(0.33, 1, 0.68, 1);
+        transition: all 1200ms cubic-bezier(0.22, 1, 0.36, 1) 150ms;
         pointer-events: auto;
         opacity: 1;
         filter: blur(0px);
         transform: scale(1);
+    }
+    .slideContainer.noBlur {
+        filter: none !important;
     }
 
 .horizontalStackWrapper {
@@ -136,6 +138,7 @@
     width: 90%;
     display: flex;
     gap: 24px;
+    filter: none;
 }
 
     .cards-container .card-wrapper {
