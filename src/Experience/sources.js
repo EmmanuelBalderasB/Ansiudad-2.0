@@ -86,5 +86,10 @@ export default [
         name: 'axolotlModel',
         type: 'gltfModel',
         path: 'models/axolotl/axolotl.glb'
+    },
+    {
+        name: 'carModel',
+        type: 'gltfModel',
+        path: 'models/car/car.glb'
     }
 ]

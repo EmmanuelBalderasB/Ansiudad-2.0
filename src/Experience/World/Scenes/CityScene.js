@@ -4,6 +4,7 @@ import BaseScene from './BaseScene.js'
 import Floor from '../Floor.js'
 import Building from '../Building.js'
 import Axolotl from '../Axolotl.js'
+import Car from '../Car.js'
 export default class CityScene extends BaseScene {
     constructor() {
         super('CityScene')
@@ -14,8 +15,9 @@ export default class CityScene extends BaseScene {
     generateBuildings() {
         let buildings = []
         const range = 3;
-        for (let x = -range; x < range; x+=1) {
-            for (let z = -range; z < range; z+=1) {
+        for (let x = -range; x < range; x+=0.5) {
+            for (let z = -range; z < range; z+=0.5) {
+                if (z % 2 === 0 || z % 2 === .75) continue
                 const i = new Building(x+z*10)
                 i.model.position.set(x,0, z)
                 i.model.rotation.y = Math.random() > .5 ? Math.PI / 2 : 0
@@ -32,23 +34,18 @@ export default class CityScene extends BaseScene {
         this.floor = new Floor()
         this.group.add(this.floor.mesh)
 
+        //Axolotl
         this.axolotl = new Axolotl()
         this.group.add(this.axolotl.model)
+
+        //Car
+        this.car = new Car()
         // Buildings
         this.generateBuildings()
-
     }
 
     update() {
-        /* if(this.group) {
-            for (const child of this.group.children) {
-                if (!child.material) {
-
-
-                }
-
-            }
-        } */
+        this.car.update()
 
     }
 }
