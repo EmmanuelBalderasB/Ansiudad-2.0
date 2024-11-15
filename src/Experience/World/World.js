@@ -32,10 +32,10 @@ export default class World
         this.CityScene.group.rotateY(Math.PI / 4)
 
         this.PortalScene.group.position.y = -20
+        this.PortalScene.group.rotateY(Math.PI / 2)
 
         this.TunnelScene.group.position.y = -20
-        this.TunnelScene.group.position.x = -5
-        this.TunnelScene.group.rotateY(Math.PI / 2)
+        this.TunnelScene.group.position.z = -5
     }
 
     update()
