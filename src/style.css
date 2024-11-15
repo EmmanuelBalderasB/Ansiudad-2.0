@@ -92,7 +92,7 @@ main {
     #llama-helper .right-wrapper {
         pointer-events: auto;
         position: relative;
-        width: 220px;
+        width: 400px;
         padding: 30px 20px;
         border-radius: 20px;
         background-color: rgba(20,20,20, 0.5);

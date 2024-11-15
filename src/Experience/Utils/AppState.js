@@ -7,19 +7,25 @@ export default class AppState extends EventEmitter
         super()
 
         this.experience = new Experience()
+        this.events = this.experience.events
         this.sizes = this.experience.sizes
         this.scene = this.experience.scene
         this.canvas = this.experience.canvas
         this.totalSteps = 8;
 
         this.initStepsManager();
+        this.addHandlers();
+    }
+
+    addHandlers() {
+        this.events.on('appStateNextStep', this.nextStep.bind(this));
     }
 
     initStepsManager() {
         this.mainButton = document.getElementById('nextStepHelper');
         if (this.mainButton) this.mainButton.addEventListener('click', this.nextStep.bind(this));
 
-        this.stepsVisualizer = document.getElementById('stepsVisualizer');
+        // this.stepsVisualizer = document.getElementById('stepsVisualizer');
 
         this.currentStep = 0;
     }
@@ -27,7 +33,7 @@ export default class AppState extends EventEmitter
     nextStep() {
         this.currentStep++;
         this.currentStep %= this.totalSteps;
-        this.stepsVisualizer.innerText = this.currentStep;
+        // this.stepsVisualizer.innerText = this.currentStep;
         
         this.trigger('stepChange', [this.currentStep]);
     }

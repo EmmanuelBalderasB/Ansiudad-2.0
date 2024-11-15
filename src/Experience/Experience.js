@@ -10,6 +10,7 @@ import World from './World/World.js'
 import Resources from './Utils/Resources.js'
 import AppState from './Utils/AppState.js'
 import UIManager from './Utils/UIManager.js'
+import GlobalEvents from './Utils/GlobalEvents.js'
 
 import sources from './sources.js'
 import sendPrompt from '../sendPrompt.js'
@@ -37,6 +38,7 @@ export default class Experience
         this.canvas = _canvas
 
         // Setup
+        this.events = new GlobalEvents()
         this.appState = new AppState()
         this.UIManager = new UIManager()
         this.debug = new Debug()
