@@ -27,12 +27,10 @@ export default class World
     }
     
     positionScenes() {
-        this.CityScene.group.position.x = -10
-        this.CityScene.group.position.z = -5
-
-        this.TunnelScene.group.position.x = -2
-        this.TunnelScene.group.position.z = -5
-        this.TunnelScene.group.rotateY(Math.PI)
+        this.PortalScene.group.position.y = -10
+        this.TunnelScene.group.position.y = -10
+        this.TunnelScene.group.position.x = -5
+        this.TunnelScene.group.rotateY(Math.PI / 2)
     }
 
     update()

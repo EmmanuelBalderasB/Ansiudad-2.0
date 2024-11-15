@@ -22,7 +22,7 @@ export default class PortalPlane
 
     setMesh()
     {
-        this.geometry = new THREE.PlaneGeometry(1, 1, 32)
+        this.geometry = new THREE.BoxGeometry(1, 2, 0.5, 3, 3, 3)
         this.material = new THREE.ShaderMaterial({
             vertexShader: testVertexShader,
             fragmentShader: testFragmentShader,

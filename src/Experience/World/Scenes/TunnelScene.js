@@ -10,14 +10,14 @@ export default class TunnelScene extends BaseScene {
     }
 
     initScene() {
-        // Portal 3D model
+        // Tunnel 3D model
         this.tunnel = new Cone()
         this.group.add(this.tunnel.model)
 
-        // Portal plane with shader
+        // Tunnel plane with shader
         this.plane = new TunnelPlane()
         this.group.add(this.plane.mesh)
-
+        this.plane.mesh.position.z = -10
     }
 
     update() {

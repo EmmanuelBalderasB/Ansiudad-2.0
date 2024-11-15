@@ -25,7 +25,7 @@ export default class Cone {
 
     setModel() {
         this.model = this.resource.scene
-        this.model.scale.setScalar(5)
+        this.model.scale.setScalar(12)
         this.model.rotation.z = Math.PI / 2;
         this.model.rotation.y = Math.PI / -2;
         this.model.position.z = 7;
@@ -35,7 +35,6 @@ export default class Cone {
             vertexShader: planeVertexShader,
             fragmentShader: planeFragmentShader,
             side: THREE.DoubleSide,
-            transparent: true,
             uniforms: {
                 uAnimate: { value: 0 },
             }

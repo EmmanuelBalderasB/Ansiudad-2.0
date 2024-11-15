@@ -33,6 +33,7 @@ export default class TunnelPlane
         })
 
         this.mesh = new THREE.Mesh(this.geometry, this.material)
+        this.mesh.scale.setScalar(2.5)
     }
 
     update()
