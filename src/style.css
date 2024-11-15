@@ -117,7 +117,7 @@ main {
 }
 
 .slideContainer {
-    /* pointer-events: auto; */
+    pointer-events: auto;
     position: relative;
     width: 100%;
     height: 100%;
@@ -159,6 +159,53 @@ main {
         backdrop-filter: blur(6px);
     }
 
+
+.llama-instructions {
+    position: relative;
+    width: 40%;
+    min-width: 400px;
+    height: 100%;
+    margin-left: 5%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 24px;
+    padding-right: 40px;
+    box-sizing: border-box;
+}
+    .llama-instructions .portrait-wrapper {
+        width: 100px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+    }
+
+        .llama-instructions .portrait-wrapper img {
+            width: 100%;
+        }
+
+    .llama-instructions .text-wrapper {
+        width: 400px;
+        height: 60%;
+        padding: 40px 30px;
+        border-radius: 20px;
+        background-color: rgba(20,20,20, 0.5);
+        backdrop-filter: blur(6px);
+    }
+
+        .llama-instructions .text-wrapper h2 {
+            margin-bottom: 32px;
+        }
+        .llama-instructions .text-wrapper h3 {
+            margin-bottom: 16px;
+        }
+        .llama-instructions .text-wrapper p {
+            margin-bottom: 12px;
+        }
+
+        .llama-instructions .text-wrapper button {
+            margin-top: 48px;
+        }
 
 .cards-container {
     position: relative;

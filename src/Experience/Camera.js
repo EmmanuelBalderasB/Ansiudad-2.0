@@ -42,14 +42,24 @@ export default class Camera
 
     addHandlers() {
         this.appState.on('stepChange', (newStep) => {
-            this.moveToPortalScene();
+            if (newStep == 4) {
+                this.moveToPortalScene();
+            } else if (newStep == 6) {
+                this.moveToTunnelScene();
+            }
         });
     }
 
     moveToPortalScene() {
         console.log('moveToPortalScene');
-        gsap.to(this.instance.position, { y: -8, duration: 2, ease: "power4.out" });
-        gsap.to(this.vectorLookAt, { y: -10, duration: 1.2, ease: "power4.out" });
+        gsap.to(this.instance.position, { x: 8, y: -19.5, z: 0.75, duration: 2, ease: "power4.out" });
+        gsap.to(this.vectorLookAt, { y: -19.5, z: 1.5, duration: 1.2, ease: "power4.out" });
+    }
+    
+    moveToTunnelScene() {
+        console.log('moveToTunnelScene');
+        gsap.to(this.instance.position, { x: -2, y: -20, z: 0, duration: 2, ease: "power4.out" });
+        gsap.to(this.vectorLookAt, { x: -10, y: -20, z: 0, duration: 1.2, ease: "power4.out" });
     }
 
     update()
