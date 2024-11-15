@@ -46,20 +46,18 @@ export default class Camera
                 this.moveToPortalScene();
             } else if (newStep == 5) {
                 this.moveToTunnelScene();
-            } else if (newStep == 7) {
+            } else if (newStep == 0 || newStep == 7) {
                 this.moveToCityScene();
             }
         });
     }
 
     moveToPortalScene() {
-        console.log('moveToPortalScene');
         gsap.to(this.instance.position, { x: 0, y: -18.5, z: 8, duration: 2, ease: "power2.inOut" });
         gsap.to(this.vectorLookAt, { x: -1.5, y: -19.5, duration: 1.2, ease: "power2.inOut" });
     }
     
     moveToTunnelScene() {
-        console.log('moveToTunnelScene');
         gsap.to(this.instance.position, { x: 0, y: -20, z: -2, duration: 2, ease: "power2.inOut" });
         gsap.to(this.vectorLookAt, { x: 0, y: -20, z: -10, duration: 1.2, ease: "power2.inOut" });
     }

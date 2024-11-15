@@ -15,8 +15,6 @@ export default class World
         // Wait for resources
         this.resources.on('ready', () =>
         {
-            console.log('ready');
-            
             // Setup
             this.environment = new Environment()
 

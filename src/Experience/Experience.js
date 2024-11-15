@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import * as Taxi from '@unseenco/taxi'
+import TaxiTransition from './Utils/TaxiTransition.js'
 
 import Debug from './Utils/Debug.js'
 import Sizes from './Utils/Sizes.js'
@@ -40,7 +41,7 @@ export default class Experience
         // Setup
         this.events = new GlobalEvents()
         this.appState = new AppState()
-        this.UIManager = new UIManager()
+        if (window.location.pathname.includes('juego')) this.UIManager = new UIManager()
         this.debug = new Debug()
         this.sizes = new Sizes()
         this.time = new Time()
@@ -64,7 +65,11 @@ export default class Experience
     }
 
     initTaxi() {
-        this.taxi = new Taxi.Core();
+        this.taxi = new Taxi.Core({
+            transitions: {
+                default: TaxiTransition
+            }
+        });
     }
 
     llamaSetup() {

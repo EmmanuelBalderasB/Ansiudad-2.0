@@ -1,15 +1,23 @@
 import Experience from '../Experience.js'
 import EventEmitter from './EventEmitter.js'
 
+let instance = null
+
 export default class GlobalEvents extends EventEmitter
 {
     constructor() {
         super()
 
-        this.experience = new Experience()
-        // this.sizes = this.experience.sizes
-        // this.scene = this.experience.scene
-        // this.canvas = this.experience.canvas
+        // Singleton
+        if(instance)
+        {
+            return instance
+        }
+        instance = this
+        
+        // Global access
+        window.globalEvents = this
+
 
         this.addHandlers();
         this.tester = 'ready!'

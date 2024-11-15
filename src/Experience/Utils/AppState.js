@@ -17,6 +17,11 @@ export default class AppState extends EventEmitter
         this.addHandlers();
     }
 
+    reset() {
+        this.currentStep = 0;
+        this.trigger('stepChange', [this.currentStep]);
+    }
+
     addHandlers() {
         this.events.on('appStateNextStep', this.nextStep.bind(this));
         this.events.on('appStateStep', this.goToStep.bind(this));
@@ -32,10 +37,13 @@ export default class AppState extends EventEmitter
     }
 
     nextStep() {
+        console.log('nextStep start', this.currentStep);
+        
         this.currentStep++;
         this.currentStep %= this.totalSteps;
         // this.stepsVisualizer.innerText = this.currentStep;
-        
+
+        console.log('nextStep end', this.currentStep);
         this.trigger('stepChange', [this.currentStep]);
     }
 

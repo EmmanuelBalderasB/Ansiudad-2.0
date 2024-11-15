@@ -21,7 +21,12 @@ export default class UIManager extends EventEmitter
 
     initUI() {
         this.views = document.querySelectorAll('.slideContainer');
-        if (this.views.length >= 1) this.views[0].classList.add('show');
+        if (this.views.length >= 1) {
+            this.views.forEach((view, idx) => {
+                if (idx == 0) view.classList.add('show');
+                else view.classList.remove('show');
+            });
+        }
 
         this.initTriggers();
     }
