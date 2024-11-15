@@ -51,5 +51,30 @@ export default [
         name: 'buildingCModel',
         type: 'gltfModel',
         path: 'models/building/buildingC.glb'
-    }
+    },
+    {
+        name: 'buildingDModel',
+        type: 'gltfModel',
+        path: 'models/building/buildingC.glb'
+    },
+    {
+        name: 'buildingEModel',
+        type: 'gltfModel',
+        path: 'models/building/buildingC.glb'
+    },
+    {
+        name: 'buildingFModel',
+        type: 'gltfModel',
+        path: 'models/building/buildingC.glb'
+    },
+    {
+        name: 'buildingGModel',
+        type: 'gltfModel',
+        path: 'models/building/buildingC.glb'
+    },
+    {
+        name: 'buildingHModel',
+        type: 'gltfModel',
+        path: 'models/building/buildingC.glb'
+    },
 ]

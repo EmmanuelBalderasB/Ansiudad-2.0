@@ -13,7 +13,7 @@ export default class CityScene extends BaseScene {
 
     generateBuildings() {
         let buildings = []
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 30; i++) {
             buildings.push(new Building())
         }
         this.group.add(...buildings.map(building => building.model))

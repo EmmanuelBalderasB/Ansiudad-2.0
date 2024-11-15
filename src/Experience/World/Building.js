@@ -18,7 +18,7 @@ export default class Building
             this.debugFolder = this.debug.ui.addFolder('building')
         }
         
-        const typeList = ['buildingAModel', 'buildingBModel', 'buildingCModel']
+        const typeList = ['buildingAModel', 'buildingBModel', 'buildingCModel', 'buildingDModel', 'buildingEModel', 'buildingFModel', 'buildingGModel', 'buildingHModel']
         const type = typeList[Math.floor(Math.random() * typeList.length)]
 
         // Resource
@@ -34,12 +34,14 @@ export default class Building
         //this.model.scale.set(0.2, 0.2, 0.2)
         this.model.position.set(Math.random() * 5 - 2.5 , 0, Math.random() * 5 - 2.5)
         // this.scene.add(this.model)
-
+        const colors = [0x8062cc, 0x5e1fff, 0xb8a5e8]
         this.model.traverse((child) =>
         {
             if(child instanceof THREE.Mesh)
             {
                 child.castShadow = true
+                child.material.color = new THREE.Color(colors[Math.floor(Math.random() * colors.length)])
+                
             }
         })
     }

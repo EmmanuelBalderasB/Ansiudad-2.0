@@ -47,11 +47,8 @@ export default class Experience
         // UI interactions
         this.llamaSetup();
 
-        // Resize event
-        this.sizes.on('resize', () =>
-        {
-            this.resize()
-        })
+        // Event Handlers
+        this.addHandlers()
 
         // Time tick event
         this.time.on('tick', () =>
@@ -67,6 +64,19 @@ export default class Experience
     llamaSetup() {
         const btn = document.querySelector('.submitBtn');
         //btn.addEventListener('click', sendPrompt);
+    }
+
+    addHandlers() {
+        // Resize event
+        this.sizes.on('resize', () =>
+        {
+            this.resize()
+        })
+
+        // click tester
+        window.addEventListener('click', _ => {
+            console.log('click');
+        });
     }
 
     resize()
