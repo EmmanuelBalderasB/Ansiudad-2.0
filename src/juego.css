@@ -65,6 +65,11 @@
         margin-top: -150px;
     }
 
+    #slide0 img {
+        width: 70%;
+        margin-top: -220px;
+    }
+
 
 /* Llama related layouts */
 .llama-intro {
@@ -93,7 +98,7 @@
         padding: 40px 30px;
         border-radius: 20px;
         background-color: rgba(20,20,20, 0.5);
-        backdrop-filter: blur(6px);
+        backdrop-filter: blur(10px);
     }
 
 
@@ -131,7 +136,7 @@
         padding: 40px 30px;
         border-radius: 20px;
         background-color: rgba(20,20,20, 0.5);
-        backdrop-filter: blur(6px);
+        backdrop-filter: blur(80px);
     }
 
         .llama-instructions .text-wrapper h2 {
@@ -187,7 +192,7 @@
         border-radius: 20px;
         text-align: center;
         background-color: rgba(20,20,20, 0.5);
-        backdrop-filter: blur(6px);
+        backdrop-filter: blur(10px);
     }
 
         .llama-wait .text-wrapper h3 {
@@ -215,8 +220,8 @@
         flex-direction: column;
         gap: 24px;
         border-radius: 20px;
-        background-color: rgba(200,200,200, 0.5);
-        backdrop-filter: blur(6px);
+        background-color: rgba(150,150,150, 0.5);
+        backdrop-filter: blur(10px);
         overflow: hidden;
     }
     .cards-container .card-wrapper.fullHeight {
@@ -228,6 +233,9 @@
             bottom: 0; left: 0;
             width: 100%;
             padding: 15px 30px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: flex-end;
             box-sizing: border-box;
             background-color: rgba(20,20,20, 0.5);
         }
