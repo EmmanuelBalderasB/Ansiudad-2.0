@@ -71,6 +71,10 @@ export default class UIManager extends EventEmitter
 
         this.currentView = newStep;
 
+        // TODO:
+        // Emma, todo este "if" hay que quitarlo cuando termines de conectar Llama. En cuanto recibamos la respuesta de Llama, ponlo en el HTML y disparas la function
+            // this.events.trigger('nextStep');
+        // para continuar con el flujo de la experiencia.
         if (newStep == 6) {
             setTimeout(_ => {
                 this.events.trigger('nextStep');
