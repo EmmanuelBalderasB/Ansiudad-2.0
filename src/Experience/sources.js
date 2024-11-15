@@ -30,7 +30,7 @@ export default [
     {
         name: 'portalModel',
         type: 'gltfModel',
-        path: 'models/portal/portal2.glb'
+        path: 'models/portal/portal.glb'
     },
     {
         name: 'portalModelCone',
