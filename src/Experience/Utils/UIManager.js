@@ -11,8 +11,16 @@ export default class UIManager extends EventEmitter
         this.scene = this.experience.scene
         this.canvas = this.experience.canvas
         this.appState = this.experience.appState
+        this.currentView = this.appState.currentStep
+
+        this.initUI();
 
         this.addHandlers();
+    }
+
+    initUI() {
+        this.views = document.querySelectorAll('.slideContainer');
+        this.views[0].classList.add('show');
     }
 
     addHandlers() {
@@ -21,9 +29,10 @@ export default class UIManager extends EventEmitter
         });
     }
 
-    switchViews(currentStep) {
-        let viewId = currentStep;
-        console.log('view to show', viewId);
-        
+    switchViews(newStep) {
+        this.views[this.currentView].classList.remove('show');
+        this.views[newStep].classList.add('show');
+
+        this.currentView = newStep;
     }
 }

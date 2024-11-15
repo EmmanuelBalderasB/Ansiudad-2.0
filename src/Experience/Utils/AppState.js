@@ -10,6 +10,7 @@ export default class AppState extends EventEmitter
         this.sizes = this.experience.sizes
         this.scene = this.experience.scene
         this.canvas = this.experience.canvas
+        this.totalSteps = 10;
 
         this.initStepsManager();
     }
@@ -25,6 +26,7 @@ export default class AppState extends EventEmitter
 
     nextStep() {
         this.currentStep++;
+        this.currentStep %= this.totalSteps;
         this.stepsVisualizer.innerText = this.currentStep;
         
         this.trigger('stepChange', [this.currentStep]);
