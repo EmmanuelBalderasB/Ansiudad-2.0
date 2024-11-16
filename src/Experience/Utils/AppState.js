@@ -37,13 +37,10 @@ export default class AppState extends EventEmitter
     }
 
     nextStep() {
-        console.log('nextStep start', this.currentStep);
-        
         this.currentStep++;
         this.currentStep %= this.totalSteps;
         // this.stepsVisualizer.innerText = this.currentStep;
 
-        console.log('nextStep end', this.currentStep);
         this.trigger('stepChange', [this.currentStep]);
     }
 

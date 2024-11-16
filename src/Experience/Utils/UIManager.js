@@ -61,6 +61,7 @@ export default class UIManager extends EventEmitter
 
     addHandlers() {
         this.appState.on('stepChange', (newStep) => {
+            if (this.destroyed) return;
             this.switchViews(newStep);
         });
     }
@@ -96,5 +97,9 @@ export default class UIManager extends EventEmitter
                 element.style.display = 'none';
             }
         }
+    }
+
+    destroy() {
+        this.destroyed = true;
     }
 }

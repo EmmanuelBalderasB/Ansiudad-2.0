@@ -11,6 +11,7 @@ export default class TaxiTransition extends Transition {
     onLeave({ from, trigger, done }) {
         if ( this.detectView(from) == 'juego' ) {
             experience.appState.reset()
+            if (experience.UIManager) experience.UIManager.destroy();
         }
         done()
     }
