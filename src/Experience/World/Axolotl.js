@@ -13,15 +13,12 @@ export default class Axolotl {
         // Debug
         if (this.debug.active) {
             this.debugFolder = this.debug.ui.addFolder('axolotl')
-            this.debugFolder.add(this.model.position.x, 'x').min(-3).max(3).step(0.1).name('positionX')
-            this.debugFolder.add(this.model.position.x, 'z').min(-3).max(3).step(0.1).name('positionZ')
-
         }
 
         // Resource
         this.resource = this.resources.items.axolotlModel
         this.setModel()
-        //this.setAnimation()
+        // this.setAnimation()
     }
 
     setModel() {
@@ -36,6 +33,12 @@ export default class Axolotl {
 
             }
         })
+
+        // Debug
+        if (this.debug.active) {
+            this.debugFolder.add(this.model.position, 'x').min(-3).max(3).step(0.1).name('positionX')
+            this.debugFolder.add(this.model.position, 'z').min(-3).max(3).step(0.1).name('positionZ')
+        }
     }
 
     setAnimation() {
@@ -77,6 +80,8 @@ export default class Axolotl {
     }
 
     update() {
-        //this.animation.mixer.update(this.time.delta)
+        if (this.animation && this.animation.mixer) {
+            this.animation.mixer.update(this.time.delta)
+        }
     }
 }
