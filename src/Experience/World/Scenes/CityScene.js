@@ -55,8 +55,6 @@ export default class CityScene extends BaseScene {
 
         //Car
         this.generateCars()
-        // this.car = new Car(3)
-        // this.group.add(this.car.model)
 
         // Buildings
         this.generateBuildings()
