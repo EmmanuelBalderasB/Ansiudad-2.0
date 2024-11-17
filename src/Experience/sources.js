@@ -90,6 +90,6 @@ export default [
     {
         name: 'carModel',
         type: 'gltfModel',
-        path: 'models/car/car.glb'
+        path: 'models/car/car-custom.glb'
     }
 ]
