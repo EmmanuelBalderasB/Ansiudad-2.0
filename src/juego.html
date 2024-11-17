@@ -190,12 +190,12 @@
                                 
                                 <div class="input-group">
                                     <label for="" class="input-label">¿Con cuántos equipos quieres jugar?</label>
-                                    <input type="text" class="llama-input">
+                                    <input type="range" min="1" max="5" step="1" class="llama-input" id="number-of-teams">
                                 </div>
 
                                 <div class="input-group">
                                     <label for="" class="input-label">¿Cuántos jugadores hay en total?</label>
-                                    <input type="text" class="llama-input">
+                                    <input type="range" min="1" max="25" step="1" class="llama-input" id="number-of-roles">
                                 </div>
 
                                 <div class="card-footer">
@@ -211,7 +211,7 @@
                                 
                                 <div class="input-group">
                                     <label for="" class="input-label">Tema:</label>
-                                    <input type="text" class="llama-input">
+                                    <input type="text" class="llama-input" id="theme-input">
                                 </div>
 
                                 <div class="card-footer">
@@ -235,7 +235,7 @@
                             </div>
                         </div>
 
-                        <button class="regular-btn goToNextStepBtn">Listo, crea el incidente para jugar!</button>
+                        <button class="regular-btn goToNextStepBtn" id="submit">Listo, crea el incidente para jugar!</button>
                     </div>
                 </div>
 
@@ -278,7 +278,7 @@
                         <div class="cards-container fullHeight">
                             <div class="card-wrapper fullHeight">
                                 <h4>1. Incidente</h4>
-                                <div id="llama-incidente" class="llama-response">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque repellendus nisi, dolore earum exercitationem a, nemo vero, maxime veniam libero at beatae vel est perspiciatis nihil laboriosam incidunt sequi adipisci?</div>
+                                <div id="llama-event" class="llama-response">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque repellendus nisi, dolore earum exercitationem a, nemo vero, maxime veniam libero at beatae vel est perspiciatis nihil laboriosam incidunt sequi adipisci?</div>
 
                                 <div class="card-footer">
                                     <img src="brand/logo-short.svg" alt="A!">

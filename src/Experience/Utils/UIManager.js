@@ -1,6 +1,5 @@
 import Experience from '../Experience.js'
 import EventEmitter from './EventEmitter.js'
-
 export default class UIManager extends EventEmitter
 {
     constructor() {
@@ -13,10 +12,12 @@ export default class UIManager extends EventEmitter
         this.canvas = this.experience.canvas
         this.appState = this.experience.appState
         this.currentView = this.appState.currentStep
-
         this.initUI();
 
         this.addHandlers();
+
+        // Bind the method to preserve context
+        this.sendPrompt = this.sendPrompt.bind(this);
     }
 
     initUI() {
@@ -77,11 +78,6 @@ export default class UIManager extends EventEmitter
 
         this.currentView = newStep;
 
-        // TODO:
-        // Emma, todo este "if" hay que quitarlo cuando termines de conectar Llama. En cuanto recibamos la respuesta de Llama, ponlo en el HTML y disparas la function
-            // this.events.trigger('nextStep');
-        // para continuar con el flujo de la experiencia.
-   
         const cityScene = this.experience.world.CityScene;
         const portalScene = this.experience.world.PortalScene;
         const tunnelScene = this.experience.world.TunnelScene;
@@ -95,21 +91,8 @@ export default class UIManager extends EventEmitter
         if (newStep == 5) {
             portalScene.isActivated = false;
             tunnelScene.isActivated = true;
-        }
-        // Deactivate tunnel scene and activate city scene
-        if (newStep == 6) {
-            setTimeout(_ => {
-                this.events.trigger('nextStep');
-                cityScene.isActivated = true;
-                tunnelScene.isActivated = false;
-                console.log({
-                    'City Scene': this.experience.world.CityScene.isActivated,
-                    'Portal Scene': this.experience.world.PortalScene.isActivated,
-                    'Tunnel Scene': this.experience.world.TunnelScene.isActivated,
-                    step: newStep
-                });
-            }, 2000);
-            
+            const submitButton = document.getElementById('submit');
+            submitButton.addEventListener('click', this.sendPrompt);
         }
 
         console.log({
@@ -118,6 +101,69 @@ export default class UIManager extends EventEmitter
             'Tunnel Scene': this.experience.world.TunnelScene.isActivated,
             step: newStep
         });
+    }
+    async sendPrompt(e) {
+        e.preventDefault();
+        console.log('Button clicked');
+
+        const numOfTeamsField = document.querySelector('#number-of-teams');
+        const numOfPlayersField = document.querySelector('#number-of-roles');
+        const inputField = document.querySelector('#theme-input');
+        const eventBox = document.querySelector('#llama-event');
+
+        const prompt = inputField.value.trim();
+        const _numberOfTeams = numOfTeamsField.value;
+        const _numberOfRoles = numOfPlayersField.value;
+
+        try {
+            const response = await fetch('https://h3lv2miu1x1kda-3000.proxy.runpod.net/api/generate/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    prompt: prompt,
+                    numberOfTeams: _numberOfTeams,
+                    numberOfRoles: _numberOfRoles,
+                })
+            });
+
+            console.log('Response:', response);
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const responseData = await response.json();
+            console.log('Response data:', responseData);
+
+            // Update the UI with the response
+            if (eventBox) {
+                eventBox.textContent = responseData.data.events[0].title;
+            }
+
+            // Store response and trigger next step
+            this.response = responseData;
+
+            // Check if we have a valid response before proceeding
+            if (this.response) {
+                const cityScene = this.experience.world.CityScene;
+                const tunnelScene = this.experience.world.TunnelScene;
+
+                // Update scene states
+                cityScene.isActivated = true;
+                tunnelScene.isActivated = false;
+
+                // Trigger step 6
+                this.events.trigger('goToStep', [7]);
+            }
+
+        } catch (error) {
+            console.error('Error processing response:', error);
+            if (eventBox) {
+                eventBox.textContent = 'Error: Failed to process response';
+            }
+        }
     }
 
     handleLlamaHelper(newStep) {
