@@ -106,5 +106,15 @@ export default [
         name: 'carModelPurple',
         type: 'gltfModel',
         path: 'models/car/car-custom-purple.glb'
+    },
+    {
+        name: 'carModelRed',
+        type: 'gltfModel',
+        path: 'models/car/car-custom-red.glb'
+    },
+    {
+        name: 'carModelGreen',
+        type: 'gltfModel',
+        path: 'models/car/car-custom-green.glb'
     }
 ]
