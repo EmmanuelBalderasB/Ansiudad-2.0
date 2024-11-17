@@ -24,9 +24,9 @@ export default class Axolotl {
     setModel() {
         this.model = this.resource.scene.clone()
         //this.model.scale.set(0.2, 0.2, 0.2)
-        this.model.position.set(Math.random() * 6 - 3, 0, 3)
+        this.model.position.set(0, 0, 3.5)
         const rotations = [0, Math.PI / 2, Math.PI, Math.PI * 1.5]
-        this.model.rotation.y = rotations[Math.floor(Math.random() * rotations.length)]
+        this.model.rotation.y = Math.PI//rotations[Math.floor(Math.random() * rotations.length)]
         this.model.traverse((child) => {
             if (child instanceof THREE.Mesh) {
                 child.castShadow = true
