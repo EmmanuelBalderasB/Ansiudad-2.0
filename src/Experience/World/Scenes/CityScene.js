@@ -68,7 +68,7 @@ export default class CityScene extends BaseScene {
     update() {
         this.updateCars()
         if (this.axolotl) {
-            //this.axolotl.update()
+            this.axolotl.update()
         }
     }
 }
