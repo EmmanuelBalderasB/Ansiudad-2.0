@@ -88,8 +88,23 @@ export default [
         path: 'models/axolotl/axolotl.glb'
     },
     {
-        name: 'carModel',
+        name: 'carModelWhite',
         type: 'gltfModel',
-        path: 'models/car/car-custom.glb'
+        path: 'models/car/car-custom-white.glb'
+    },
+    {
+        name: 'carModelBlue',
+        type: 'gltfModel',
+        path: 'models/car/car-custom-blue.glb'
+    },
+    {
+        name: 'carModelOrange',
+        type: 'gltfModel',
+        path: 'models/car/car-custom-orange.glb'
+    },
+    {
+        name: 'carModelPurple',
+        type: 'gltfModel',
+        path: 'models/car/car-custom-purple.glb'
     }
 ]

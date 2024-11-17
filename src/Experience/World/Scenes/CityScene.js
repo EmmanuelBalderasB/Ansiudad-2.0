@@ -15,20 +15,35 @@ export default class CityScene extends BaseScene {
     generateBuildings() {
         let buildings = []
         const range = 3;
-        for (let x = -range; x < range; x+=0.5) {
-            for (let z = -range; z < range; z+=0.5) {
-                if (z % 2 === 0 || z % 2 === .75) continue
+        const rotations = [0, Math.PI / 2, Math.PI, Math.PI * 1.5]
+
+        for (let x = -range; x < range; x++) {
+            for (let z = -range; z < range; z++) {
                 const i = new Building(x+z*10)
                 i.model.position.set(x,0, z)
-                i.model.rotation.y = Math.random() > .5 ? Math.PI / 2 : 0
+                i.model.rotation.y = rotations[Math.floor(Math.random() * rotations.length)]
                 buildings.push(i)
+
+                const i2 = new Building(x + z * 10 + 1)
+                i2.model.position.set(x+.5, 0, z)
+                i2.model.rotation.y = rotations[Math.floor(Math.random() * rotations.length)]
+                buildings.push(i2)
                
             }
         }
         this.group.add(...buildings.map(building => building.model))
-        
     }
-
+    
+    generateCars(){
+        let cars = []
+        const range = 3;
+        for (let x = -range; x < range; x++) {
+                const i = new Car(3+x)
+                cars.push(i)
+        }
+        this.cars = cars;
+        this.group.add(...cars.map(car => car.model))
+    }
     initScene() {
         // Floor
         this.floor = new Floor()
@@ -39,12 +54,19 @@ export default class CityScene extends BaseScene {
         this.group.add(this.axolotl.model)
 
         //Car
-        this.car = new Car()
+        this.generateCars()
+        // this.car = new Car(3)
+        // this.group.add(this.car.model)
+
         // Buildings
         this.generateBuildings()
     }
-
+    updateCars(){
+        this.cars.forEach(car => {
+            car.update()
+        })
+    }
     update() {
-        this.car.update()
+        this.updateCars()
     }
 }
