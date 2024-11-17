@@ -1,5 +1,3 @@
-import * as THREE from 'three'
-import Experience from '../../Experience.js'
 import BaseScene from './BaseScene.js'
 import Floor from '../Floor.js'
 import Building from '../Building.js'
