@@ -40,7 +40,7 @@ export default [
     {
         name: 'portalModelCone',
         type: 'gltfModel',
-        path: 'models/Cone/cone2.glb'
+        path: 'models/Cone/CONE-2k.glb'
     },
     {
         name: 'buildingAModel',
