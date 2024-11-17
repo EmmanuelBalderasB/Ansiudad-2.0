@@ -32,7 +32,7 @@ export default class Car {
 
     setModel() {
         this.model = this.resource.scene.clone()
-        this.model.position.set(this.originPointX, 0, 3);
+        this.model.position.set(this.originPointX, 0, 1);
         this.model.scale.set(2,2,2);
         this.model.rotation.y = 0;
         this.model.traverse((child) => {

@@ -18,6 +18,9 @@ export default class CityScene extends BaseScene {
         for (let x = -range; x < range; x++) {
             for (let z = -range; z < range; z++) {
                 const i = new Building(x+z*10)
+                if (x == 0 && z == 0 || x == -1 && z == 0 || x == .5 && z == 0) continue
+                if (z >= 1) continue
+
                 i.model.position.set(x,0, z)
                 i.model.rotation.y = rotations[Math.floor(Math.random() * rotations.length)]
                 buildings.push(i)
@@ -64,5 +67,8 @@ export default class CityScene extends BaseScene {
     }
     update() {
         this.updateCars()
+        if (this.axolotl) {
+            this.axolotl.update()
+        }
     }
 }

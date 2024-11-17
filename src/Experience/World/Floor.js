@@ -40,15 +40,15 @@ export default class Floor
     {
         this.material = new THREE.MeshStandardMaterial({
             map: this.textures.color,
-            normalMap: this.textures.normal
+            normalMap: this.textures.normal,
         })
     }
 
     setMesh()
     {
-        this.mesh = new THREE.Mesh(this.geometry, new THREE.MeshStandardMaterial({ color: 0xF6E99C }))
+        this.mesh = new THREE.Mesh(this.geometry, new THREE.MeshStandardMaterial({ color: 0x202020 }))
         this.mesh.rotation.x = - Math.PI * 0.5
         this.mesh.receiveShadow = true
-        // this.scene.add(this.mesh)
+        this.mesh.position.z = -1
     }
 }

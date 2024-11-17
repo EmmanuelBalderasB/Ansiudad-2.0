@@ -85,7 +85,7 @@ export default [
     {
         name: 'axolotlModel',
         type: 'gltfModel',
-        path: 'models/axolotl/axolotl.glb'
+        path: 'models/axolotl/axolotl-colored.glb'
     },
     {
         name: 'carModelWhite',

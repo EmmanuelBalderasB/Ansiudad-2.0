@@ -13,6 +13,9 @@ export default class Axolotl {
         // Debug
         if (this.debug.active) {
             this.debugFolder = this.debug.ui.addFolder('axolotl')
+            this.debugFolder.add(this.model.position.x, 'x').min(-3).max(3).step(0.1).name('positionX')
+            this.debugFolder.add(this.model.position.x, 'z').min(-3).max(3).step(0.1).name('positionZ')
+
         }
 
         // Resource
@@ -23,14 +26,12 @@ export default class Axolotl {
 
     setModel() {
         this.model = this.resource.scene.clone()
-        //this.model.scale.set(0.2, 0.2, 0.2)
-        this.model.position.set(0, 0, 3.5)
-        const rotations = [0, Math.PI / 2, Math.PI, Math.PI * 1.5]
-        this.model.rotation.y = Math.PI//rotations[Math.floor(Math.random() * rotations.length)]
+        this.model.position.set(0, 0, 0)
+        this.model.rotation.y = Math.PI * 2
         this.model.traverse((child) => {
             if (child instanceof THREE.Mesh) {
                 child.castShadow = true
-                child.material.color = new THREE.Color(0xffffff)
+                //child.material.color = new THREE.Color(0xff99ff)
 
             }
         })
@@ -41,14 +42,10 @@ export default class Axolotl {
 
         // // Mixer
         // this.animation.mixer = new THREE.AnimationMixer(this.model)
-
         // // Actions
         // this.animation.actions = {}
 
         // this.animation.actions.idle = this.animation.mixer.clipAction(this.resource.animations[0])
-        // this.animation.actions.walking = this.animation.mixer.clipAction(this.resource.animations[1])
-        // this.animation.actions.running = this.animation.mixer.clipAction(this.resource.animations[2])
-
         // this.animation.actions.current = this.animation.actions.idle
         // this.animation.actions.current.play()
 
@@ -64,8 +61,7 @@ export default class Axolotl {
 
         //     this.animation.actions.current = newAction
         // }
-
-        // Debug
+        // //Debug
         // if(this.debug.active)
         // {
         //     const debugObject = {
@@ -80,5 +76,6 @@ export default class Axolotl {
     }
 
     update() {
+        //this.animation.mixer.update(this.time.delta)
     }
 }
