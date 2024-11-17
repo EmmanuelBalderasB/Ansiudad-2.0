@@ -31,6 +31,7 @@ export default class Axolotl {
         this.model.traverse((child) => {
             if (child instanceof THREE.Mesh) {
                 child.castShadow = true
+                child.receiveShadow = true
                 //child.material.color = new THREE.Color(0xff99ff)
 
             }

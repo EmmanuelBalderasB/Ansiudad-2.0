@@ -39,6 +39,7 @@ export default class Building
             if(child instanceof THREE.Mesh)
             {
                 child.castShadow = true
+                child.receiveShadow = true
                 child.material.color = new THREE.Color(colors[Math.floor(Math.random() * colors.length)])
                 
             }
