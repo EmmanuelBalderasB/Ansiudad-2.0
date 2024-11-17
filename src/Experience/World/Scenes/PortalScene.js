@@ -5,7 +5,6 @@ import PortalPlane from '../PortalPlane.js'
 export default class PortalScene extends BaseScene {
     constructor() {
         super('PortalScene')
-
         this.initScene();
     }
 

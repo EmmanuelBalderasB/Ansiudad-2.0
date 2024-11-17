@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import Experience from '../../Experience.js'
 
-export default class CityScene {
+export default class BaseScene {
     constructor(name) {
         this.experience = new Experience()
         this.scene = this.experience.scene
@@ -9,7 +9,7 @@ export default class CityScene {
         this.time = this.experience.time
         this.debug = this.experience.debug
         this.group = new THREE.Group()
-
+        this.isActivated = false;
         // Debug
         if(this.debug.active) {
             this.debugFolder = this.debug.ui.addFolder(name)

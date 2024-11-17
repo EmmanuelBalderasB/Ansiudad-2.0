@@ -5,7 +5,6 @@ import TunnelPlane from '../TunnelPlane.js'
 export default class TunnelScene extends BaseScene {
     constructor() {
         super('TunnelScene')
-
         this.initScene();
     }
 

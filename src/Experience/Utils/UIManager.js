@@ -81,11 +81,43 @@ export default class UIManager extends EventEmitter
         // Emma, todo este "if" hay que quitarlo cuando termines de conectar Llama. En cuanto recibamos la respuesta de Llama, ponlo en el HTML y disparas la function
             // this.events.trigger('nextStep');
         // para continuar con el flujo de la experiencia.
+   
+        const cityScene = this.experience.world.CityScene;
+        const portalScene = this.experience.world.PortalScene;
+        const tunnelScene = this.experience.world.TunnelScene;
+
+        // Deactivate city scene and activate portal scene
+        if (newStep == 3) {
+            cityScene.isActivated = false;
+            portalScene.isActivated = true;
+        }
+        // Deactivate portal scene and activate tunnel scene
+        if (newStep == 5) {
+            portalScene.isActivated = false;
+            tunnelScene.isActivated = true;
+        }
+        // Deactivate tunnel scene and activate city scene
         if (newStep == 6) {
             setTimeout(_ => {
                 this.events.trigger('nextStep');
+                cityScene.isActivated = true;
+                tunnelScene.isActivated = false;
+                console.log({
+                    'City Scene': this.experience.world.CityScene.isActivated,
+                    'Portal Scene': this.experience.world.PortalScene.isActivated,
+                    'Tunnel Scene': this.experience.world.TunnelScene.isActivated,
+                    step: newStep
+                });
             }, 2000);
+            
         }
+
+        console.log({
+            'City Scene': this.experience.world.CityScene.isActivated,
+            'Portal Scene': this.experience.world.PortalScene.isActivated,
+            'Tunnel Scene': this.experience.world.TunnelScene.isActivated,
+            step: newStep
+        });
     }
 
     handleLlamaHelper(newStep) {

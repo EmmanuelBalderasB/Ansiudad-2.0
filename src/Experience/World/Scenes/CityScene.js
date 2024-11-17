@@ -8,8 +8,8 @@ import Car from '../Car.js'
 export default class CityScene extends BaseScene {
     constructor() {
         super('CityScene')
-
         this.initScene();
+        this.isActivated = true;
     }
 
     generateBuildings() {
@@ -46,6 +46,5 @@ export default class CityScene extends BaseScene {
 
     update() {
         this.car.update()
-
     }
 }
