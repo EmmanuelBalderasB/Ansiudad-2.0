@@ -252,8 +252,9 @@
     gap: 24px;
     justify-content: center;
 }
-.cards-container.fullHeight {
+.cards-container.fitHeight {
     height: 100%;
+    overflow-y: scroll;
 }
 
     .cards-container .card-wrapper {
@@ -269,8 +270,8 @@
         backdrop-filter: blur(20px);
         overflow: hidden;
     }
-    .cards-container .card-wrapper.fullHeight {
-        height: 100%;
+    .cards-container .card-wrapper.fitHeight {
+        height: fit-content;
     }
 
         .cards-container .card-footer {
@@ -284,3 +285,10 @@
             box-sizing: border-box;
             background-color: rgba(20,20,20, 0.5);
         }
+h3#loading-title {
+    padding-bottom: 0;
+}
+img#loading-animation {
+    width: 256px;
+    height: 256px;
+}

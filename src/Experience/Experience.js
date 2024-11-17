@@ -14,7 +14,6 @@ import UIManager from './Utils/UIManager.js'
 import GlobalEvents from './Utils/GlobalEvents.js'
 
 import sources from './sources.js'
-import sendPrompt from '../sendPrompt.js'
 
 let instance = null
 

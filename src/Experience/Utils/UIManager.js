@@ -110,6 +110,7 @@ export default class UIManager extends EventEmitter
         const numOfPlayersField = document.querySelector('#number-of-roles');
         const inputField = document.querySelector('#theme-input');
         const eventBox = document.querySelector('#llama-event');
+        const rolesBox = document.querySelector('#llama-roles');
 
         const prompt = inputField.value.trim();
         const _numberOfTeams = numOfTeamsField.value;
@@ -139,7 +140,43 @@ export default class UIManager extends EventEmitter
 
             // Update the UI with the response
             if (eventBox) {
-                eventBox.textContent = responseData.data.events[0].title;
+                eventBox.innerHTML = '';
+                for (let i = 0; i < responseData.data.events.length; i++) {
+                    const event = responseData.data.events[i];
+                    const eventContainer = document.createElement('div');
+
+                    const eventTitle = document.createElement('h3');
+                    eventTitle.textContent = event.title;
+                    eventContainer.appendChild(eventTitle);
+
+                    const eventDescription = document.createElement('p');
+                    eventDescription.textContent = event.description;
+                    eventContainer.appendChild(eventDescription);
+
+                    eventBox.appendChild(eventContainer);
+                }
+
+                if (rolesBox) {
+                    rolesBox.innerHTML = '';
+                    for (let i = 0; i < responseData.data.roles.length; i++) {
+                        const role = responseData.data.roles[i];
+                        const roleContainer = document.createElement('div');
+
+                        const roleTitle = document.createElement('h3');
+                        roleTitle.textContent = role.name;
+                        roleContainer.appendChild(roleTitle);
+
+                        const rolePriorities = document.createElement('p');
+                        rolePriorities.textContent = role.priorities;
+                        roleContainer.appendChild(rolePriorities);
+
+                        const roleInterests = document.createElement('p');
+                        roleInterests.textContent = role.interests;
+                        roleContainer.appendChild(roleInterests);
+
+                        rolesBox.appendChild(roleContainer);
+                    }
+                }
             }
 
             // Store response and trigger next step
