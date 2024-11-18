@@ -208,7 +208,7 @@ void main()
 
     // Final color
     vec3 bgColor = vec3(vUv.y) * 0.5;
-    vec3 uvColor = vec3(vUv.y, 1.0, 1.0);
+    vec3 uvColor = vec3(vUv.y, 0, 1.0);
     vec3 mixedColor = mix(bgColor, uvColor, strength);
     // vec3 mixedColor = vec3(vUv.x);
 
