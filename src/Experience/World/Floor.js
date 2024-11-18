@@ -49,6 +49,6 @@ export default class Floor
         this.mesh = new THREE.Mesh(this.geometry, new THREE.MeshStandardMaterial({ color: 0x202020 }))
         this.mesh.rotation.x = - Math.PI * 0.5
         this.mesh.receiveShadow = true
-        this.mesh.position.z = -1
+        this.mesh.position.z = -1.5
     }
 }

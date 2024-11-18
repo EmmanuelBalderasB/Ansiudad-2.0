@@ -37,10 +37,14 @@ export default class CityScene extends BaseScene {
     
     generateCars(){
         let cars = []
-        const range = 3;
-        for (let x = -range; x < range; x++) {
-                const i = new Car(3+x)
-                cars.push(i)
+        const total = 24;
+        const range = 4;
+        const zSubtract = 1.5;
+        for (let i = 0; i < total; i++) {
+                const x = Math.cos(i / total * Math.PI * 2) * range;
+                const z = Math.sin(i / total * Math.PI * 2) * range - zSubtract;
+                const instance = new Car(x,z, total, range, zSubtract, i)
+                cars.push(instance)
         }
         this.cars = cars;
         this.group.add(...cars.map(car => car.model))
