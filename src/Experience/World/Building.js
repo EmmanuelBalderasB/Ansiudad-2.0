@@ -30,8 +30,8 @@ export default class Building
     setModel()
     {
         this.model = this.resource.scene.clone()
-        this.model.position.set(this.id, 0, this.id)
-        const rotations = [0, Math.PI / 2, Math.PI, Math.PI * 1.5]
+        //this.model.position.set(this.id, 0, this.id)
+        const rotations = [0, Math.PI * 0.5, Math.PI, Math.PI * 1.5]
         this.model.rotation.y = rotations[Math.floor(Math.random() * rotations.length)]
         const colors = [0xb8a5e8, 0x9b92b3]
         this.model.traverse((child) =>
