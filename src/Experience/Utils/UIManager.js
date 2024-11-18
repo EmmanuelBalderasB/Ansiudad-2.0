@@ -167,12 +167,8 @@ export default class UIManager extends EventEmitter
                         roleContainer.appendChild(roleTitle);
 
                         const rolePriorities = document.createElement('p');
-                        rolePriorities.textContent = role.priorities;
+                        rolePriorities.textContent = role.priorities || role.prioridades;
                         roleContainer.appendChild(rolePriorities);
-
-                        const roleInterests = document.createElement('p');
-                        roleInterests.textContent = role.interests;
-                        roleContainer.appendChild(roleInterests);
 
                         rolesBox.appendChild(roleContainer);
                     }
@@ -212,7 +208,7 @@ export default class UIManager extends EventEmitter
                 if (!this.response) {
                     element.style.display = 'block';
                     console.log('error');
-                    element.textContent = 'Error: Failed to process response';
+                    element.textContent = 'Error: Failed to process response, please refresh the page and try again';
                     element.style.color = 'red';
                 } else {
                     element.style.display = 'flex';

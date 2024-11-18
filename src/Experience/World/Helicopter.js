@@ -52,7 +52,7 @@ export default class Helicopter {
         this.container.add(this.model)
 
         // Position blades above the helicopter body
-        this.blades.position.y = 0.1
+        this.blades.position.y = 0.15
 
         // Add blades to container
         this.container.add(this.blades)
