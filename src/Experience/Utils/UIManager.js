@@ -197,6 +197,8 @@ export default class UIManager extends EventEmitter
 
         } catch (error) {
             console.error('Error processing response:', error);
+
+            this.events.trigger('goToStep', [0]);
             if (eventBox) {
                 eventBox.textContent = 'Error: Failed to process response';
             }
@@ -207,7 +209,14 @@ export default class UIManager extends EventEmitter
         const element = document.getElementById('llama-helper');
         if (element) {
             if (newStep == 0) {
-                element.style.display = 'flex';
+                if (!this.response) {
+                    element.style.display = 'block';
+                    console.log('error');
+                    element.textContent = 'Error: Failed to process response';
+                    element.style.color = 'red';
+                } else {
+                    element.style.display = 'flex';
+                }
             } else {
                 element.style.display = 'none';
             }
