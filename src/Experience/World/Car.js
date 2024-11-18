@@ -68,6 +68,6 @@ export default class Car {
         this.model.rotation.y = -Math.atan2(
             -Math.sin(currentAngle), // Change in x (negative sine for clockwise)
             -Math.cos(currentAngle)  // Change in z (negative cosine for clockwise)
-        ) + + Math.PI / 2
+        ) + Math.PI / 2
     }
 }
