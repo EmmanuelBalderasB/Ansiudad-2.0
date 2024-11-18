@@ -121,5 +121,10 @@ export default [
         name: 'helicopterModel',
         type: 'gltfModel',
         path: 'models/helicopter/Helicopter.glb'
+    },
+    {
+        name: 'baseModel',
+        type: 'gltfModel',
+        path: 'models/base/base.glb'
     }
 ]
