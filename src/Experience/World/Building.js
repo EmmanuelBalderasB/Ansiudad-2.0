@@ -33,7 +33,7 @@ export default class Building
         //this.model.position.set(this.id, 0, this.id)
         const rotations = [0, Math.PI * 0.5, Math.PI, Math.PI * 1.5]
         this.model.rotation.y = rotations[Math.floor(Math.random() * rotations.length)]
-        const colors = [0xb8a5e8, 0x9b92b3]
+        const colors = [0xb8a5e8, 0x9b92b3, 0x898196]
         this.model.traverse((child) =>
         {
             if(child instanceof THREE.Mesh)

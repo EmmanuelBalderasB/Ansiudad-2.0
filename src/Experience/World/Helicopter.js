@@ -34,6 +34,14 @@ export default class Helicopter {
         // Create helicopter body
         this.model = this.resource.scene.clone()
         this.model.scale.set(1.5, 1.5, 1.5)
+        this.model.traverse((child) => {
+            if (child instanceof THREE.Mesh) {
+                child.castShadow = true
+                child.receiveShadow = true
+                //child.material.color = new THREE.Color(0xff99ff)
+
+            }
+        })
         // Create blades
         this.blades = new THREE.Mesh(
             new THREE.BoxGeometry(.5, .01, .01),
