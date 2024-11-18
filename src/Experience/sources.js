@@ -116,5 +116,10 @@ export default [
         name: 'carModelGreen',
         type: 'gltfModel',
         path: 'models/car/car-custom-green.glb'
+    },
+    {
+        name: 'helicopterModel',
+        type: 'gltfModel',
+        path: 'models/helicopter/Helicopter.glb'
     }
 ]

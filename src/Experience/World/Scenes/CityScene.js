@@ -3,6 +3,7 @@ import Floor from '../Floor.js'
 import Building from '../Building.js'
 import Axolotl from '../Axolotl.js'
 import Car from '../Car.js'
+import Helicopter from '../Helicopter.js'
 export default class CityScene extends BaseScene {
     constructor() {
         super('CityScene')
@@ -63,6 +64,13 @@ export default class CityScene extends BaseScene {
 
         // Buildings
         this.generateBuildings()
+
+        // Helicopter
+        this.helicopter = new Helicopter()
+        this.group.add(this.helicopter.container)
+
+        //this.helicopter2 = new Helicopter()
+        //this.group.add(this.helicopter2.container)
     }
     updateCars(){
         this.cars.forEach(car => {
@@ -74,5 +82,7 @@ export default class CityScene extends BaseScene {
         if (this.axolotl) {
             this.axolotl.update()
         }
+        this.helicopter.update()
+        //this.helicopter2.update()
     }
 }
