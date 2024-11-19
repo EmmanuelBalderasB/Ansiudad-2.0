@@ -223,3 +223,4 @@ export default class UIManager extends EventEmitter
         this.destroyed = true;
     }
 }
+//test
