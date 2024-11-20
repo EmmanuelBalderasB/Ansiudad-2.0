@@ -126,5 +126,145 @@ export default [
         name: 'baseModel',
         type: 'gltfModel',
         path: 'models/base/base.glb'
+    },
+    {
+        name: 'tileMilkyTexture1',
+        type: 'texture',
+        path: 'textures/tiles/Milky/Milky 1 - 512x512.png'
+    },
+    {
+        name: 'tileMilkyTexture2',
+        type: 'texture',
+        path: 'textures/tiles/Milky/Milky 2 - 512x512.png'
+    },
+    {
+        name: 'tileMilkyTexture3',
+        type: 'texture',
+        path: 'textures/tiles/Milky/Milky 3 - 512x512.png'
+    },
+    {
+        name: 'tileMilkyTexture4',
+        type: 'texture',
+        path: 'textures/tiles/Milky/Milky 4 - 512x512.png'
+    },
+    {
+        name: 'tileMilkyTexture5',
+        type: 'texture',
+        path: 'textures/tiles/Milky/Milky 5 - 512x512.png'
+    },
+    {
+        name: 'tileMilkyTexture6',
+        type: 'texture',
+        path: 'textures/tiles/Milky/Milky 6 - 512x512.png'
+    },
+    {
+        name: 'tileMilkyTexture7',
+        type: 'texture',
+        path: 'textures/tiles/Milky/Milky 7 - 512x512.png'
+    },
+    {
+        name: 'tileMilkyTexture8',
+        type: 'texture',
+        path: 'textures/tiles/Milky/Milky 8 - 512x512.png'
+    },
+    {
+        name: 'tileMilkyTexture9',
+        type: 'texture',
+        path: 'textures/tiles/Milky/Milky 9 - 512x512.png'
+    },
+    {
+        name: 'tileMilkyTexture10',
+        type: 'texture',
+        path: 'textures/tiles/Milky/Milky 10 - 512x512.png'
+    },
+    {
+        name: 'tileMilkyTexture11',
+        type: 'texture',
+        path: 'textures/tiles/Milky/Milky 11 - 512x512.png'
+    },
+    {
+        name: 'tileMilkyTexture12',
+        type: 'texture',
+        path: 'textures/tiles/Milky/Milky 12 - 512x512.png'
+    },
+    {
+        name: 'tileMilkyTexture13',
+        type: 'texture',
+        path: 'textures/tiles/Milky/Milky 13 - 512x512.png'
+    },
+    {
+        name: 'tileMilkyTexture14',
+        type: 'texture',
+        path: 'textures/tiles/Milky/Milky 14 - 512x512.png'
+    },
+    {
+        name: 'tileCratersTexture1',
+        type: 'texture',
+        path: 'textures/tiles/Craters/Craters 1 - 512x512.png'
+    },
+    {
+        name: 'tileCratersTexture2',
+        type: 'texture',
+        path: 'textures/tiles/Craters/Craters 2 - 512x512.png'
+    },
+    {
+        name: 'tileCratersTexture3',
+        type: 'texture',
+        path: 'textures/tiles/Craters/Craters 3 - 512x512.png'
+    },
+    {
+        name: 'tileCratersTexture4',
+        type: 'texture',
+        path: 'textures/tiles/Craters/Craters 4 - 512x512.png'
+    },
+    {
+        name: 'tileCratersTexture5',
+        type: 'texture',
+        path: 'textures/tiles/Craters/Craters 5 - 512x512.png'
+    },
+    {
+        name: 'tileCratersTexture6',
+        type: 'texture',
+        path: 'textures/tiles/Craters/Craters 6 - 512x512.png'
+    },
+    {
+        name: 'tileCratersTexture7',
+        type: 'texture',
+        path: 'textures/tiles/Craters/Craters 7 - 512x512.png'
+    },
+    {
+        name: 'tileCratersTexture8',
+        type: 'texture',
+        path: 'textures/tiles/Craters/Craters 8 - 512x512.png'
+    },
+    {
+        name: 'tileCratersTexture9',
+        type: 'texture',
+        path: 'textures/tiles/Craters/Craters 9 - 512x512.png'
+    },
+    {
+        name: 'tileCratersTexture10',
+        type: 'texture',
+        path: 'textures/tiles/Craters/Craters 10 - 512x512.png'
+    },
+    {
+        name: 'tileCratersTexture11',
+        type: 'texture',
+        path: 'textures/tiles/Craters/Craters 11 - 512x512.png'
+    },
+    {
+        name: 'tileCratersTexture12',
+        type: 'texture',
+        path: 'textures/tiles/Craters/Craters 12 - 512x512.png'
+    },
+    {
+        name: 'tileCratersTexture13',
+        type: 'texture',
+        path: 'textures/tiles/Craters/Craters 13 - 512x512.png'
+    },
+    {
+        name: 'tileCratersTexture14',
+        type: 'texture',
+        path: 'textures/tiles/Craters/Craters 14 - 512x512.png'
     }
 ]

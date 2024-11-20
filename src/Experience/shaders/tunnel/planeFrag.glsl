@@ -192,14 +192,16 @@ void main()
     // float strength = 1.0 - abs(cnoise(vUv * 10.0));
 
     // // Pattern 49
+    float uTime = mod(uAnimate, PI * 10.);
+
     vec2 uv = vUv;
     vec2 uvMirror = vec2(1. - uv.x, uv.y);
 
-    uv.x += uAnimate * 0.05;
-    uvMirror.x += uAnimate * 0.05;
+    uv.x += uTime * 0.05;
+    uvMirror.x += uTime * 0.05;
     float mirrorStep = step(0.5, vUv.x);
     uv = mix(uv, uvMirror, mirrorStep);
-    uv = rotate(uv, uAnimate * 0.01, vec2(0.5));
+    uv = rotate(uv, uTime * 0.01, vec2(0.5));
 
     float strength = sin((cnoise(uv * 0.5) * 50.0) + uAnimate);
 
@@ -212,5 +214,6 @@ void main()
     vec3 mixedColor = mix(bgColor, uvColor, strength);
     // vec3 mixedColor = vec3(vUv.x);
 
-    gl_FragColor = vec4(mixedColor, strength + 0.5);
+    // gl_FragColor = vec4(mixedColor, strength + 0.5);
+    gl_FragColor = vec4(strength);
 }
