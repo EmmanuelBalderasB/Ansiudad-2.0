@@ -1,9 +1,9 @@
 import * as THREE from 'three'
 import Experience from '../Experience.js'
 import planeVertexShader from '../shaders/tunnel/planeVert.glsl'
-import planeFragmentShader from '../shaders/tunnel/tunnelBack.glsl'
+import planeFragmentShader from '../shaders/tunnel/tunnelBackHigh.glsl'
 
-export default class TunnelPlane
+export default class TunnelPlaneHigh
 {
     constructor()
     {
@@ -15,7 +15,7 @@ export default class TunnelPlane
         // Debug
         if(this.debug.active)
         {
-            this.debugFolder = this.debug.ui.addFolder('TunnelPlane')
+            this.debugFolder = this.debug.ui.addFolder('TunnelPlaneHigh')
         }
 
         this.setTextures()
@@ -26,9 +26,8 @@ export default class TunnelPlane
     {
         this.textures = {}
 
-        // this.textures.tile = this.resources.items.tileCratersTexture13
+        this.textures.tile = this.resources.items.tileCratersTexture13
         // this.textures.tile = this.resources.items.tileMilkyTexture12
-        this.textures.tile = this.resources.items.tileCratersTexture1
         // this.textures.tile.colorSpace = THREE.SRGBColorSpace
         // this.textures.tile.repeat.set(1.5, 1.5)
         this.textures.tile.wrapS = THREE.RepeatWrapping
