@@ -11,9 +11,11 @@ varying vec2 vUv;
 
 void main()
 {
-    vec2 uv = uvToPolarFlowing(vUv, -uAnimate);
-    vec2 uv2 = rotate(vUv, uAnimate * -3., vec2(0.5));
-    uv2 = uvToPolarFlowing(uv2, -uAnimate * 1.25);
+    float speed = 1.7;
+
+    vec2 uv = uvToPolarFlowing(vUv, -uAnimate * speed);
+    vec2 uv2 = rotate(vUv, 30. + (uAnimate * -1.), vec2(0.5));
+    uv2 = uvToPolarFlowing(uv2, -uAnimate * (speed * 1.25));
 
     vec4 texel = texture2D(tMap, uv);
     vec4 texel2 = texture2D(tMap, uv2);
@@ -25,11 +27,11 @@ void main()
     radialMask = pow(radialMask, 6.);
     texel *= radialMask;
 
-    float centerMask = smoothstep(0.0, 0.1, length(vUv - 0.5));
+    float centerMask = smoothstep(0.0, 0.08, length(vUv - 0.5));
     texel *= centerMask;
 
     // texel = vec4(1. - step(texel.r, 0.1));
-    texel = vec4(smoothstep(0.15, 0.5, texel.r));
+    texel = vec4(smoothstep(0.15, (cos(uAnimate * 5.) * 0.3) + 0.7, texel.r));
 
     float alpha = texel.r;
 
