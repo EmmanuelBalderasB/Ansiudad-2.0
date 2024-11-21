@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import Experience from '../Experience.js'
 import planeVertexShader from '../shaders/tunnel/planeVert.glsl'
-import planeFragmentShader from '../shaders/tunnel/tunnelFragA.glsl'
+import planeFragmentShader from '../shaders/tunnel/tunnelBack.glsl'
 
 export default class TunnelPlane
 {

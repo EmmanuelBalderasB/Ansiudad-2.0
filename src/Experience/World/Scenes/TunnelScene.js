@@ -17,6 +17,7 @@ export default class TunnelScene extends BaseScene {
         this.plane = new TunnelPlane()
         this.group.add(this.plane.mesh)
         this.plane.mesh.position.z = -10
+        // this.plane.mesh.position.z = -45
     }
 
     update() {
