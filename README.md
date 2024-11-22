@@ -18,6 +18,8 @@ npm run dev
 
 # Compila los archivos para publicar el proyecto en la carpeta "dist/"
 npm run build
+
+experience.events.trigger('goToStep', [3]) # Portal scene
 ```
 
 
