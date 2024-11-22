@@ -40,6 +40,8 @@ Ansiudad es un juego de mesa que aborda la ecoansiedad y busca convertir la preo
     [alex] Global improvements
         [alex] Gaze camera
 
+    [alex] performance
+
 ***
 
 # Setup (prestado de Three.js Journey)
