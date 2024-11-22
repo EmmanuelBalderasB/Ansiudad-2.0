@@ -9,6 +9,7 @@ Ansiudad es un juego de mesa que aborda la ecoansiedad y busca convertir la preo
 [emma] Button disappearing (UX improvement)
 [emma] UI styling upgrades
 [emma] Pantalla para bloquear dispositivos móbiles
+[emma] Improve Error handling from Llama
 
 - 3D
     [alex] Improve 3D background (3D model)
