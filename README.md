@@ -2,6 +2,46 @@
 Ansiudad es un juego de mesa que aborda la ecoansiedad y busca convertir la preocupación por el cambio climático en acción. Creado por Gabriel Sánchez y Andrea Norzagaray. Esta es la versión 2 del sitio web pensada para informar sobre el juego y a la vez ser un facilitador o "expansión" a través de IA.
 
 
+***
+# TODO List (en orden)
+[alex] Merge Maries (Integracion de Maries)
+[emma/alex] Loader
+[emma] Button disappearing (UX improvement)
+[emma] UI styling upgrades
+[emma] Pantalla para bloquear dispositivos móbiles
+
+- 3D
+    [alex] Improve 3D background (3D model)
+    [alex] Tween background color
+
+    [emma] City improvements
+        [emma] Posicion de los edificios
+        [emma] Escala de los edificios (composicion de piramide)
+        [emma] Pavimento / Asfalto
+        [emma] Reposicion del ajolote
+        [emma] Mas helicopteros (1)
+
+        -- nice to haves
+        [emma] Reducir total de coches
+        [emma] Offset de coches
+        [emma] Arboles (offset)
+        [emma] Postes de luz (offset)
+
+        [alex] Landing camera angle
+        [alex] City close up camera angle
+
+    [alex] Portal improvements
+        [alex] Portal with shaders
+
+    [alex] Tunnel improvements
+        [alex] Tunnel cone
+
+
+    [alex] Global improvements
+        [alex] Gaze camera
+
+***
+
 # Setup (prestado de Three.js Journey)
 Descarga [Node.js](https://nodejs.org/en/download/).
 
