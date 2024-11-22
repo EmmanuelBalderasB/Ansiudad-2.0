@@ -10,9 +10,8 @@ export default class Helicopter {
         this.time = this.experience.time
         this.debug = this.experience.debug
         this.PerlinNoise = new PerlinNoise()
-
         this.resource = this.resources.items.helicopterModel
-
+        this.prevPosition = null
         // Target point that the helicopter should face
         this.targetPoint = new THREE.Vector3(0, 1.5, 0)
 
@@ -109,13 +108,32 @@ export default class Helicopter {
     noise(x, y, z) {
         return this.PerlinNoise.noise(x, y, z);
     }
-
+    // checkCollision(current) {
+    //     // Check if the helicopter is colliding with Axolotl object
+    //     const distance = this.container.position.distanceTo(this.targetPoint)
+    //     if (distance < 2) {
+    //         console.log('crash');
+    //         const diff = this.prevPosition.sub(current)
+    //         this.container.position.sub(diff);
+    //     }
+    //     this.updateRotation()
+    // }
     update() {
         const inc = 0.0001;
+
+        // Store previous position
+        this.prevPosition = this.container.position.clone()
+
         this.container.position.y = this.noise(this.time.elapsed * inc, 0, 0) * 2 + 1
         this.container.position.x = this.noise(0, this.time.elapsed * inc, 0) * 6 - 3
         this.container.position.z = this.noise(0, 0, this.time.elapsed * inc) * 6 - 3
 
+        // Store current position
+        const current = this.container.position.clone()
+
+        // Check collision
+        //this.checkCollision(current)
+        
         // Update rotation to face the target point
         this.updateRotation()
 
