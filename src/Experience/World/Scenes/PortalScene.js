@@ -1,6 +1,7 @@
 import BaseScene from './BaseScene.js'
 import Portal from '../Portal.js'
 import PortalPlane from '../PortalPlane.js'
+import TunnelPlane from '../TunnelPlane.js'
 
 export default class PortalScene extends BaseScene {
     constructor() {
@@ -15,8 +16,9 @@ export default class PortalScene extends BaseScene {
         
 
         // Portal plane with shader
-        this.plane = new PortalPlane()
+        this.plane = new TunnelPlane()
         this.group.add(this.plane.mesh)
+        this.plane.mesh.scale.setScalar(5)
         this.plane.mesh.rotation.y = Math.PI / 2;
         this.plane.mesh.position.set(0, 0.5, 0);
         
