@@ -5,9 +5,9 @@ Ansiudad es un juego de mesa que aborda la ecoansiedad y busca convertir la preo
 ***
 # TODO List (en orden)
 - [] [alex] Merge Maries (Integracion de Maries)
-- [] [emma/alex] Loader [x]
-- [] [emma] Button disappearing (UX improvement)
-- [] [emma] UI styling upgrades
+- [x] [emma/alex] Loader [x]
+- [x] [emma] Button disappearing (UX improvement)
+- [x] [emma] UI styling upgrades
 - [] [emma] Improve Error handling from Llama
 - [] [emma] Pantalla para bloquear dispositivos móbiles
 
