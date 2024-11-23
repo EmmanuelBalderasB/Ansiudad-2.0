@@ -90,6 +90,7 @@ export default class UIManager extends EventEmitter
         }
         // Deactivate portal scene and activate tunnel scene
         if (newStep == 5) {
+            const submitButton = document.querySelector('#submit');
             portalScene.isActivated = false;
             tunnelScene.isActivated = true;
             submitButton.addEventListener('click', this.sendPrompt);
