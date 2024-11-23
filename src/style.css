@@ -2,7 +2,30 @@
 {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('/fonts/HelveticaNeue-Roman.eot');
+  src: url('/fonts/HelveticaNeue-Roman.eot?#iefix') format('embedded-opentype'),
+      url('/fonts/HelveticaNeue-Roman.woff2') format('woff2'),
+      url('/fonts/HelveticaNeue-Roman.woff') format('woff'),
+      url('/fonts/HelveticaNeue-Roman.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica NB';
+  src: url('/fonts/HelveticaNeue-Bold.eot');
+  src: url('/fonts/HelveticaNeue-Bold.eot?#iefix') format('embedded-opentype'),
+      url('/fonts/HelveticaNeue-Bold.woff2') format('woff2'),
+      url('/fonts/HelveticaNeue-Bold.woff') format('woff'),
+      url('/fonts/HelveticaNeue-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
 
 html,
