@@ -5,10 +5,6 @@ import { StackMotionEffect as StackMotionEffect3 } from '/js/effect-3/stackMotio
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import gsap from 'gsap';
 import Experience from '/Experience/Experience.js'
-import { inject } from "@vercel/analytics"
-import { injectSpeedInsights } from '@vercel/speed-insights';
-inject();
-injectSpeedInsights();
 let experience = null
 if (window.location.pathname.includes('juego') && !experience) {
   experience = new Experience(document.querySelector('canvas.webgl'))
