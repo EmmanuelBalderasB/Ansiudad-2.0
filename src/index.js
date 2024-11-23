@@ -1,9 +1,22 @@
-import { preloadImages } from './main-utils.js';
+import { preloadImages } from '/js/main-utils.js';
 import { StackMotionEffect as StackMotionEffect1 } from '/js/effect-1/stackMotionEffect1.js';
 import { StackMotionEffect as StackMotionEffect2 } from '/js/effect-2/stackMotionEffect2.js';
 import { StackMotionEffect as StackMotionEffect3 } from '/js/effect-3/stackMotionEffect3.js';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import gsap from 'gsap';
+import Experience from '/Experience/Experience.js'
+import { inject } from "@vercel/analytics"
+import { injectSpeedInsights } from '@vercel/speed-insights';
+inject();
+injectSpeedInsights();
+let experience = null
+if (window.location.pathname.includes('juego') && !experience) {
+  experience = new Experience(document.querySelector('canvas.webgl'))
+}
+
+if (experience && !window.location.pathname.includes('juego')) {
+  experience.destroy();
+}
 
 //Cartas 
 gsap.registerPlugin(ScrollTrigger);
