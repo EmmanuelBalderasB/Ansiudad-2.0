@@ -32,7 +32,7 @@ export default class Experience
         window.experience = this
 
         // Taxi JS
-        this.initTaxi();
+        //this.initTaxi();
 
         // Options
         this.canvas = _canvas
