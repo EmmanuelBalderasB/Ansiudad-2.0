@@ -4,10 +4,9 @@
     box-sizing: border-box;
 }
 
-/* article#juegoContainer.pageContainer {
-    padding: 90px 0;
-} */
-
+article#juegoContainer.pageContainer {
+    padding: 190px 0;
+}
 /* Slides shared classes */
 .allSlidesContainer {
     position: relative;
@@ -295,6 +294,27 @@
             box-sizing: border-box;
             background-color: rgba(20,20,20, 0.5);
         }
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 25%;
+}
+
+.input-element {
+    margin-bottom: .4rem;
+}
+
+.llama-input {
+    width: 100%;
+}
+.input-number {
+
+}
+
 h3#loading-title {
     padding-bottom: 0;
 }
@@ -336,8 +356,11 @@ img#loading-animation {
   100%  {transform:scaleY(-1) rotate(-135deg)}
 }
 
-@media (max-height: 800px) {
+@media (max-height: 880px) {
     .allSlidesContainer {
         overflow-y: scroll;
     }
+    article#juegoContainer.pageContainer {
+    padding: 90px 0;
+}
 }

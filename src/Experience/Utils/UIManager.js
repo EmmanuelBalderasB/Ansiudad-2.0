@@ -16,6 +16,7 @@ export default class UIManager extends EventEmitter
 
         this.addHandlers();
 
+        this.showInputNumber();
         // Bind the method to preserve context
         this.sendPrompt = this.sendPrompt.bind(this);
     }
@@ -91,7 +92,6 @@ export default class UIManager extends EventEmitter
         if (newStep == 5) {
             portalScene.isActivated = false;
             tunnelScene.isActivated = true;
-            const submitButton = document.getElementById('submit');
             submitButton.addEventListener('click', this.sendPrompt);
         }
 
@@ -217,6 +217,25 @@ export default class UIManager extends EventEmitter
                 element.style.display = 'none';
             }
         }
+    }
+
+    showInputNumber() {
+        const numOfTeamsField = document.querySelector('#number-of-teams');
+        const teamNumber = document.querySelector('#team-number');
+        const numOfPlayersField = document.querySelector('#number-of-roles');
+        const playerNumber = document.querySelector('#role-number');
+
+        teamNumber.textContent = numOfTeamsField.value;
+        playerNumber.textContent = numOfPlayersField.value;
+
+        numOfTeamsField.addEventListener('change', (e) => {
+            console.log('Number of teams:', e.target.value);
+            teamNumber.textContent = e.target.value;
+        })
+        numOfPlayersField.addEventListener('change', (e) => {
+            console.log('Number of players:', e.target.value);
+            playerNumber.textContent = e.target.value;
+        })
     }
 
     destroy() {
