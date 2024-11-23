@@ -4,9 +4,9 @@
     box-sizing: border-box;
 }
 
-article#juegoContainer.pageContainer {
+/* article#juegoContainer.pageContainer {
     padding: 90px 0;
-}
+} */
 
 /* Slides shared classes */
 .allSlidesContainer {
