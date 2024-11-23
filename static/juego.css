@@ -1,3 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+article#juegoContainer.pageContainer {
+    padding: 90px 0;
+}
+
 /* Slides shared classes */
 .allSlidesContainer {
     position: relative;
@@ -324,4 +334,10 @@ img#loading-animation {
   49.99%{transform:scaleY(1)  rotate(135deg)}
   50%   {transform:scaleY(-1) rotate(0deg)}
   100%  {transform:scaleY(-1) rotate(-135deg)}
+}
+
+@media (max-height: 800px) {
+    .allSlidesContainer {
+        overflow-y: scroll;
+    }
 }
