@@ -1,7 +1,9 @@
 import { preloadImages } from './main-utils.js';
-import { StackMotionEffect as StackMotionEffect1 } from './effect-1/stackMotionEffect.js';
-import { StackMotionEffect as StackMotionEffect2 } from './effect-2/stackMotionEffect.js';
-import { StackMotionEffect as StackMotionEffect3 } from './effect-3/stackMotionEffect.js';
+import { StackMotionEffect as StackMotionEffect1 } from '/js/effect-1/stackMotionEffect1.js';
+import { StackMotionEffect as StackMotionEffect2 } from '/js/effect-2/stackMotionEffect2.js';
+import { StackMotionEffect as StackMotionEffect3 } from '/js/effect-3/stackMotionEffect3.js';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import gsap from 'gsap';
 
 //Cartas 
 gsap.registerPlugin(ScrollTrigger);
