@@ -4,44 +4,44 @@ Ansiudad es un juego de mesa que aborda la ecoansiedad y busca convertir la preo
 
 ***
 # TODO List (en orden)
-[alex] Merge Maries (Integracion de Maries)
-[emma/alex] Loader
-[emma] Button disappearing (UX improvement)
-[emma] UI styling upgrades
-[emma] Improve Error handling from Llama
-[emma] Pantalla para bloquear dispositivos móbiles
+- [] [alex] Merge Maries (Integracion de Maries)
+- [] [emma/alex] Loader [x]
+- [] [emma] Button disappearing (UX improvement)
+- [] [emma] UI styling upgrades
+- [] [emma] Improve Error handling from Llama
+- [] [emma] Pantalla para bloquear dispositivos móbiles
 
 - 3D
-    [alex] Improve 3D background (3D model)
-    [alex] Tween background color
+    - [] [alex] Improve 3D background (3D model)
+    - [] [alex] Tween background color
 
-    [emma] City improvements
-        [emma] Posicion de los edificios
-        [emma] Escala de los edificios (composicion de piramide)
-        [emma] Pavimento / Asfalto
-        [emma] Reposicion del ajolote
-        [emma] Mas helicopteros (1)
+    - [emma] City improvements
+        - [] [emma] Posicion de los edificios
+        - [] [emma] Escala de los edificios (composicion de piramide)
+        - [] [emma] Pavimento / Asfalto
+        - [] [emma] Reposicion del ajolote
+        - [] [emma] Mas helicopteros (1)
 
-        -- nice to haves
-        [emma] Reducir total de coches
-        [emma] Offset de coches
-        [emma] Arboles (offset)
-        [emma] Postes de luz (offset)
+        - nice to haves
+         - [] [emma] Reducir total de coches 
+         - [] [emma] Offset de coches 
+         - [] [emma] Arboles (offset) 
+         - [] [emma] Postes de luz (offset) 
 
-        [alex] Landing camera angle
-        [alex] City close up camera angle
+        - [] [alex] Landing camera angle
+        - [] [alex] City close up camera angle
 
-    [alex] Portal improvements
-        [alex] Portal with shaders
+    - [] [alex] Portal improvements
+        - [] [alex] Portal with shaders
 
-    [alex] Tunnel improvements
-        [alex] Tunnel cone
+    - [] [alex] Tunnel improvements
+        - [] [alex] Tunnel cone
 
 
-    [alex] Global improvements
-        [alex] Gaze camera
+    - [] [alex] Global improvements
+        - [] [alex] Gaze camera
 
-    [alex] performance
+    - [] [alex] performance
 
 ***
 
