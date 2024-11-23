@@ -4,4 +4,7 @@ import { inject } from "@vercel/analytics"
 import { injectSpeedInsights } from '@vercel/speed-insights';
 inject();
 injectSpeedInsights();
-const experience = new Experience(document.querySelector('canvas.webgl'))
+let experience = null
+if (window.location.pathname.includes('juego') && !experience) {
+    experience = new Experience(document.querySelector('canvas.webgl'))
+}
