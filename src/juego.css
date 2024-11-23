@@ -1,12 +1,125 @@
-* {
+*
+{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    color: #F5F5F5;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('/fonts/HelveticaNeue-Roman.eot');
+  src: url('/fonts/HelveticaNeue-Roman.eot?#iefix') format('embedded-opentype'),
+      url('/fonts/HelveticaNeue-Roman.woff2') format('woff2'),
+      url('/fonts/HelveticaNeue-Roman.woff') format('woff'),
+      url('/fonts/HelveticaNeue-Roman.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
-body {
+@font-face {
+  font-family: 'Helvetica NB';
+  src: url('/fonts/HelveticaNeue-Bold.eot');
+  src: url('/fonts/HelveticaNeue-Bold.eot?#iefix') format('embedded-opentype'),
+      url('/fonts/HelveticaNeue-Bold.woff2') format('woff2'),
+      url('/fonts/HelveticaNeue-Bold.woff') format('woff'),
+      url('/fonts/HelveticaNeue-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+html,
+body
+{
     overflow: hidden;
+}
+
+main {
+    z-index: 1;
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.webgl
+{
+    z-index: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+}
+
+.pageContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 140px 30px 30px;
+    box-sizing: border-box;
+    color: white;
+}
+
+#llama-helper {
+    position: absolute;
+    bottom: 30px; left: 30px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+}
+
+    #llama-helper .left-wrapper {
+        position: relative;
+        width: 150px;
+    }
+        #llama-helper .left-wrapper:before {
+            content: '';
+            display: block;
+            position: absolute;
+            margin: auto;
+            bottom: 0;
+            left: 0; right: 0;
+            width: 125px;
+            height: 125px;
+            background-color: rgba(255,255,255, 0.1);
+            border-radius: 50%;
+            backdrop-filter: blur(20px);
+        }
+
+    #llama-helper img {
+        position: relative;
+        display: block;
+        width: 150px;
+        height: 150px;
+    }
+
+    #llama-helper .right-wrapper {
+        pointer-events: auto;
+        position: relative;
+        width: 400px;
+        padding: 30px 20px;
+        border-radius: 20px;
+        background-color: rgba(20,20,20, 0.5);
+        backdrop-filter: blur(20px);
+        color: #fff;
+        box-sizing: border-box;
+    }
+
+        #llama-helper .text-globe h2 {
+            margin-bottom: 32px;
+        }
+
+        #llama-helper .text-globe button {
+            margin-top: 16px;
+        }
+
+
+
+
+/* Global UI */
+.regular-btn {
+    padding: 6px 10px;
+    cursor: pointer;
 }
 
 article#juegoContainer.pageContainer {

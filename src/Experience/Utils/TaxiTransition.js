@@ -29,8 +29,6 @@ export default class TaxiTransition extends Transition {
     }
 
     detectView(viewContainer) {
-        if ( viewContainer.id.includes('home') ) return 'home';
         if ( viewContainer.id.includes('juego') ) return 'juego';
-        if ( viewContainer.id.includes('about') ) return 'about';
     }
 }

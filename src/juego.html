@@ -3,18 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juega — Ansiudad 2.0</title>
+    <title>Juega — Ansiudad</title>
     <link rel="stylesheet" href="./juego.css">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="shortcut icon" href="/img/fav/favicon.ico" />
 </head>
 <body>
-    <header class="headerNav">
-        <a href="/">¿Qué es Ansiudad?</a>
-        <a href="/about.html">¿Cómo lo diseñanos?</a>
-        <a href="/about.html">¿Dónde se ha jugado?</a>
-        <a href="/about.html">¿De qué se trata?</a>
-        <a href="/juego.html">👉 ¿Quieres jugar?</a>
-    </header>
+    <nav class="menu">
+		<ul class="menu__top">
+		    <li class="menu__logo">
+			    <a href="/index.html#" class="menu__logo-link">
+			        <img src="img/black-logo-ani.gif" alt="Logotipo Ansiudad" class="menu__logo-image">
+			    </a>
+			    <div class="menu__toggle">
+			        <label>
+			            <input type="checkbox" class="menu__toggle-checkbox">
+			            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+			            	<path class="menu__toggle-line line--1" d="M0 40h62c13 0 6 28-4 18L35 35" />
+			            	<path class="menu__toggle-line line--2" d="M0 50h70" />
+			            	<path class="menu__toggle-line line--3" d="M0 60h62c13 0 6-28-4-18L35 65" />
+			            </svg>
+			        </label>
+			    </div>
+		    </li>
+		        <li class="menu__news">
+		            <div class="menu__news-item">
+		                <img src="/img/ojito.svg" alt="Ícono" class="menu__news-icon">
+		                Transforma la enseñanza y aborda la ecoansiedad junto a tus estudiantes.
+		                <span class="menu__news-highlight">Ansiudad en línea</span> juega
+		                <a href="#" target="_blank" class="menu__news-link">aquí</a>
+		            </div>
+		        <div class="menu__news-item">
+		            <img src="/img/ojito.svg" alt="Ícono" class="menu__news-icon">
+		            Transforma la enseñanza y aborda la ecoansiedad junto a tus estudiantes.
+		            <span class="menu__news-highlight">Ansiudad en línea</span> juega
+		            <a href="#" target="_blank" class="menu__news-link">aquí</a>
+		        </div>
+		    </li>
+		</ul>
+		
+		<ul class="menu__bottom">
+		    <li class="menu__item"><a href="/index.html#what" class="menu__link">¿Qué es Ansiudad?</a></li>
+			    <li class="menu__item"><a href="/index.html#how" class="menu__link">¿Cómo lo diseñamos?</a></li>
+			    <li class="menu__item"><a href="/index.html#where" class="menu__link">¿Dónde se ha jugado?</a></li>
+			    <li class="menu__item"><a href="/index.html#about" class="menu__link">¿Cuál es el desafío?</a></li>
+			    <li class="menu__item"><a href="/juego.html" class="menu__link">¿Quieres jugar?</a></li>
+		</ul>
+	</nav>
     <main data-taxi>
         <div id="loader-container">
             <div id="loader"></div>
@@ -369,6 +404,7 @@
     </main>
 
     <canvas class="webgl"></canvas>
-    <script async type="module" src="./script.js"></script>
+    <script type="module" src="js/menu.js"></script>
+    <script type="module" src="/index.js"></script>
 </body>
 </html>
