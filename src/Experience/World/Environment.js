@@ -1,5 +1,7 @@
 import * as THREE from 'three'
 import Experience from '../Experience.js'
+import skyVertexShader from '../shaders/sky/mainSkyVertex.glsl'
+import skyFragmentShader from '../shaders/sky/mainSkyFragment.glsl'
 
 export default class Environment
 {
@@ -18,6 +20,7 @@ export default class Environment
 
         this.setSunLight()
         this.setEnvironmentMap()
+        this.setSphereBackground()
     }
 
     setSunLight()
@@ -98,5 +101,31 @@ export default class Environment
                 .step(0.001)
                 .onChange(this.environmentMap.updateMaterials)
         }
+    }
+
+    setSphereBackground() {
+        this.skyTexture = this.resources.items.skyTexture;
+        this.skyTexture.colorSpace = THREE.LinearSRGBColorSpace
+
+        this.background = new THREE.Mesh(
+            new THREE.SphereGeometry(10, 64, 64, 0, Math.PI * 2, Math.PI * 0.2, Math.PI * 0.6),
+            // new THREE.MeshBasicMaterial({
+            //     color: '#F6E294',
+            //     side: THREE.BackSide,
+            //     map: this.skyTexture
+            // })
+            new THREE.ShaderMaterial({
+                vertexShader: skyVertexShader,
+                fragmentShader: skyFragmentShader,
+                side: THREE.BackSide,
+                transparent: true,
+                uniforms: {
+                    tMap: { value: this.skyTexture },
+                    uColor: { value: new THREE.Color('#F6E294') },
+                }
+            })
+        );
+
+        this.scene.add(this.background)
     }
 }

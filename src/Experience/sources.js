@@ -266,5 +266,10 @@ export default [
         name: 'tileCratersTexture14',
         type: 'texture',
         path: 'textures/tiles/Craters/Craters 14 - 512x512.png'
+    },
+    {
+        name: 'skyTexture',
+        type: 'texture',
+        path: 'textures/sky/sky-color.png'
     }
 ]
