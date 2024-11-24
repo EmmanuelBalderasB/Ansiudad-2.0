@@ -70,7 +70,7 @@ main {
 
     #llama-helper .left-wrapper {
         position: relative;
-        width: 150px;
+        width: 128px;
     }
         #llama-helper .left-wrapper:before {
             content: '';
@@ -85,12 +85,13 @@ main {
             border-radius: 50%;
             backdrop-filter: blur(20px);
         }
+        .portrait-wrapper {}
 
     #llama-helper img {
         position: relative;
         display: block;
-        width: 150px;
-        height: 150px;
+        width: 128px;
+        height: auto;
     }
 
     #llama-helper .right-wrapper {
@@ -193,7 +194,7 @@ article#juegoContainer.pageContainer {
     }
 
     #slide0 img {
-        width: 70%;
+        width: 100%;
         margin-top: -220px;
     }
 
@@ -209,8 +210,8 @@ article#juegoContainer.pageContainer {
 }
     .llama-intro .portrait-wrapper {
         position: relative;
-        width: 100px;
-        height: 100px;
+        width: 128px;
+        height: auto;
         flex-shrink: 0;
     }
 
@@ -231,8 +232,8 @@ article#juegoContainer.pageContainer {
         .llama-intro .portrait-wrapper img {
             position: relative;
             display: block;
-            width: 100px;
-            height: 100px;
+            width: 128px;
+            height: auto;
         }
 
     .llama-intro .text-wrapper {
@@ -259,8 +260,8 @@ article#juegoContainer.pageContainer {
 }
     .llama-instructions .portrait-wrapper {
         position: relative;
-        width: 100px;
-        height: 100px;
+        width: 128px;
+        height: auto;
         flex-shrink: 0;
         display: flex;
         align-items: center;
@@ -283,8 +284,8 @@ article#juegoContainer.pageContainer {
         .llama-instructions .portrait-wrapper img {
             position: relative;
             display: block;
-            width: 100px;
-            height: 100px;
+            width: 128px;
+            height: auto;
         }
 
     .llama-instructions .text-wrapper {
@@ -354,16 +355,18 @@ article#juegoContainer.pageContainer {
         .llama-wait .portrait-wrapper img {
             position: relative;
             display: block;
-            width: 100px;
-            height: 100px;
+            width: 128px;
+            height: auto;
         }
 
     .llama-wait .text-wrapper {
         width: 400px;
         padding: 40px 30px;
-        border-radius: 5px;
+        border-radius: 25px;
         text-align: center;
-        background-color: rgba(20,20,20, 0.5);
+        background-color: rgba(70, 41, 65, .8);
+        box-shadow: 0 0 40px #ffffff;
+        /* animation: oscillate 2s infinite ease-in-out; */
         backdrop-filter: blur(10px);
     }
 
@@ -476,7 +479,7 @@ h3#loading-title {
 }
 img#loading-animation {
     width: 256px;
-    height: 256px;
+    height: auto;
 }
 
 .regular-btn.goToNextStepBtn {
@@ -539,6 +542,12 @@ button#firstStepBtn.regular-btn.submitBtn {
   49.99%{transform:scaleY(1)  rotate(135deg)}
   50%   {transform:scaleY(-1) rotate(0deg)}
   100%  {transform:scaleY(-1) rotate(-135deg)}
+}
+
+@keyframes oscillate{
+    0% {box-shadow: 0 0 40px #ffffff;}
+    50% {box-shadow: 0 0 40px rgba(255, 255, 255, 0);}
+    100% {box-shadow: 0 0 40px #ffffff;}
 }
 
 @media (max-height: 880px) {
