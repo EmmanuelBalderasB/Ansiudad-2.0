@@ -1,88 +1,144 @@
+import * as THREE from 'three'
 import BaseScene from './BaseScene.js'
 import Floor from '../Floor.js'
 import Building from '../Building.js'
 import Axolotl from '../Axolotl.js'
 import Car from '../Car.js'
 import Helicopter from '../Helicopter.js'
+import Calculations from '../../Utils/Calculations.js'
+
 export default class CityScene extends BaseScene {
+    // Cache frequently used constants
+    static BUILDING_CONFIG = {
+        RANGE: 6,
+        TOTAL_X: 6,
+        TOTAL_Z: 8,
+        SPACING_Z: 0.5,
+        SPACING_X: 0.75,
+        ROTATIONS: [0, Math.PI / 2, Math.PI, Math.PI * 1.5]
+    };
+
+    static CAR_CONFIG = {
+        TOTAL: 24,
+        RANGE: 4,
+        Z_SUBTRACT: 1.5
+    };
+
     constructor() {
         super('CityScene')
-        this.initScene();
-        this.isActivated = true;
+        this.calculations = new Calculations()
+
+        // Create reusable Vector2 instances
+        this.tempVector = new THREE.Vector2()
+        this.centerVector = new THREE.Vector2(0, 0)
+
+        // Initialize object containers
+        this.cars = []
+        this.buildings = []
+
+        this.initScene()
+        this.isActivated = true
     }
 
     generateBuildings() {
-        let buildings = []
-        const range = 3;
-        const rotations = [0, Math.PI / 2, Math.PI, Math.PI * 1.5]
+        const config = CityScene.BUILDING_CONFIG
+        const buildings = []
 
-        for (let x = -range; x < range; x++) {
-            for (let z = -range; z < range; z++) {
-                const i = new Building(x+z*10)
-                if (x == 0 && z == 0 || x == -1 && z == 0 || x == .5 && z == 0) continue
-                if (z >= 1) continue
+        // Pre-calculate offsets
+        const offsetX = -config.RANGE * 0.25
+        const offsetZ = -config.RANGE * 0.75
 
-                i.model.position.set(x,0, z)
-                i.model.rotation.y = rotations[Math.floor(Math.random() * rotations.length)]
-                buildings.push(i)
+        // Pre-allocate the total number of buildings
+        const totalBuildings = config.TOTAL_X * config.TOTAL_Z
+        buildings.length = totalBuildings
 
-                const i2 = new Building(x + z * 10 + 1)
-                i2.model.position.set(x+.5, 0, z)
-                i2.model.rotation.y = rotations[Math.floor(Math.random() * rotations.length)]
-                buildings.push(i2)
-               
+        // Create models array for batch addition
+        const models = new Array(totalBuildings)
+        let buildingIndex = 0
+
+        for (let z = 0; z < config.TOTAL_Z; z++) {
+            const zPos = z * config.SPACING_Z + offsetZ
+
+            for (let x = 0; x < config.TOTAL_X; x++) {
+                const xPos = x * config.SPACING_X + offsetX
+
+                // Reuse Vector2 instance
+                this.tempVector.set(xPos, zPos)
+                const distanceToCenter = this.tempVector.distanceTo(this.centerVector)
+                const scale = this.calculations.map(distanceToCenter, 0, 7, 0.15, 2.5)
+
+                // Create building and set properties efficiently
+                const building = new Building(buildingIndex)
+                const model = building.model
+
+                model.scale.y = scale // Only set y scale since x and z are 1
+                model.position.set(xPos, 0, zPos)
+                model.rotation.y = config.ROTATIONS[Math.floor(Math.random() * 4)]
+
+                buildings[buildingIndex] = building
+                models[buildingIndex] = model
+                buildingIndex++
             }
         }
-        this.group.add(...buildings.map(building => building.model))
+
+        this.buildings = buildings
+        // Batch add all models at once
+        this.group.add(...models)
     }
-    
-    generateCars(){
-        let cars = []
-        const total = 24;
-        const range = 4;
-        const zSubtract = 1.5;
-        for (let i = 0; i < total; i++) {
-                const x = Math.cos(i / total * Math.PI * 2) * range;
-                const z = Math.sin(i / total * Math.PI * 2) * range - zSubtract;
-                const instance = new Car(x,z, total, range, zSubtract, i)
-                cars.push(instance)
+
+    generateCars() {
+        const config = CityScene.CAR_CONFIG
+        const cars = new Array(config.TOTAL)
+        const models = new Array(config.TOTAL)
+
+        // Pre-calculate constants for the loop
+        const angleIncrement = Math.PI * 2 / config.TOTAL
+
+        for (let i = 0; i < config.TOTAL; i++) {
+            const angle = i * angleIncrement
+            const x = Math.cos(angle) * config.RANGE
+            const z = Math.sin(angle) * config.RANGE - config.Z_SUBTRACT
+
+            const car = new Car(x, z, config.TOTAL, config.RANGE, config.Z_SUBTRACT, i)
+            cars[i] = car
+            models[i] = car.model
         }
-        this.cars = cars;
-        this.group.add(...cars.map(car => car.model))
+
+        this.cars = cars
+        // Batch add all models at once
+        this.group.add(...models)
     }
+
     initScene() {
-        // Floor
+        // Create all scene elements
         this.floor = new Floor()
-        this.group.add(this.floor.mesh)
-
-        //Axolotl
         this.axolotl = new Axolotl()
-        this.group.add(this.axolotl.model)
-
-        //Car
-        this.generateCars()
-
-        // Buildings
-        this.generateBuildings()
-
-        // Helicopter
         this.helicopter = new Helicopter()
-        this.group.add(this.helicopter.container)
 
-        //this.helicopter2 = new Helicopter()
-        //this.group.add(this.helicopter2.container)
+        // Batch add static elements
+        this.group.add(
+            this.floor.mesh,
+            this.axolotl.model,
+            this.helicopter.container
+        )
+
+        // Generate dynamic elements
+        this.generateCars()
+        this.generateBuildings()
     }
-    updateCars(){
-        this.cars.forEach(car => {
+
+    updateCars() {
+        // Use for...of for better performance with arrays
+        for (const car of this.cars) {
             car.update()
-        })
+        }
     }
+
     update() {
         this.updateCars()
         if (this.axolotl) {
             this.axolotl.update()
         }
         this.helicopter.update()
-        //this.helicopter2.update()
     }
 }
