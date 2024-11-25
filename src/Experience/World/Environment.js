@@ -108,7 +108,7 @@ export default class Environment
         this.skyTexture.colorSpace = THREE.LinearSRGBColorSpace
 
         this.background = new THREE.Mesh(
-            new THREE.SphereGeometry(10, 64, 64, 0, Math.PI * 2, Math.PI * 0.2, Math.PI * 0.6),
+            new THREE.SphereGeometry(13, 64, 64, 0, Math.PI * 2, Math.PI * 0.2, Math.PI * 0.6),
             // new THREE.MeshBasicMaterial({
             //     color: '#F6E294',
             //     side: THREE.BackSide,

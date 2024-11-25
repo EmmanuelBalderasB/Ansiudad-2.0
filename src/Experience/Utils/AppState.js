@@ -11,10 +11,15 @@ export default class AppState extends EventEmitter
         this.sizes = this.experience.sizes
         this.scene = this.experience.scene
         this.canvas = this.experience.canvas
-        this.totalSteps = 8;
 
+        this.initStates();
         this.initStepsManager();
         this.addHandlers();
+    }
+
+    initStates() {
+        this.totalSteps = 8;
+        this.bgColor = "#410062";
     }
 
     reset() {
@@ -25,6 +30,7 @@ export default class AppState extends EventEmitter
     addHandlers() {
         this.events.on('appStateNextStep', this.nextStep.bind(this));
         this.events.on('appStateStep', this.goToStep.bind(this));
+        this.on('stepChange', this.updateBgColor.bind(this));
     }
 
     initStepsManager() {
@@ -50,5 +56,19 @@ export default class AppState extends EventEmitter
         // this.stepsVisualizer.innerText = this.currentStep;
         
         this.trigger('stepChange', [this.currentStep]);
+    }
+
+    updateBgColor() {
+        if (this.currentStep == 3 || this.currentStep == 5) {
+            if (this.bgColor != '#170027') {
+                this.bgColor = '#170027';
+                this.trigger('bgColorChange', [this.bgColor]);
+            }
+        } else if ( (this.currentStep >= 0 && this.currentStep < 3) || this.currentStep == this.totalSteps - 1) {
+            if (this.bgColor != '#410062') {
+                this.bgColor = '#410062';
+                this.trigger('bgColorChange', [this.bgColor]);
+            }
+        }
     }
 }
