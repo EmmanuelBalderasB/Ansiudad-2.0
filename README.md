@@ -12,8 +12,8 @@ Ansiudad es un juego de mesa que aborda la ecoansiedad y busca convertir la preo
 - [] [emma] Pantalla para bloquear dispositivos móbiles
 - [] [emma] Swap Boilerplate LLama for ne design @juego.html div.llama-helper & @juego.html div.llama-wait
 - 3D
-    - [] [alex] Improve 3D background (3D model)
-    - [] [alex] Tween background color
+    - [x] [alex] Improve 3D background (3D model)
+    - [x] [alex] Tween background color
 
     - [emma] City improvements
         - [] [emma] Posicion de los edificios
