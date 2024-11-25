@@ -183,10 +183,9 @@ article#juegoContainer.pageContainer {
 #slide0 {
     text-align: center;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-end;
+    align-items:start;
 }
-
     #slide0 h1 {
         font-size: 100px;
         font-family: sans-serif;
@@ -194,8 +193,9 @@ article#juegoContainer.pageContainer {
     }
 
     #slide0 img {
-        width: 100%;
-        margin-top: -220px;
+        position: absolute;
+        width: 30%;
+        margin-right: 100px;
     }
 
 
@@ -480,6 +480,7 @@ h3#loading-title {
 img#loading-animation {
     width: 256px;
     height: auto;
+    animation: oscillate 2s infinite ease-in-out;
 }
 
 .regular-btn.goToNextStepBtn {
@@ -528,6 +529,7 @@ button#firstStepBtn.regular-btn.submitBtn {
     l20-1 0.8s infinite linear alternate,
     l20-2 1.6s infinite linear;
 }
+
 @keyframes l20-1{
    0%    {clip-path: polygon(50% 50%,0       0,  50%   0%,  50%    0%, 50%    0%, 50%    0%, 50%    0% )}
    12.5% {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100%   0%, 100%   0%, 100%   0% )}
