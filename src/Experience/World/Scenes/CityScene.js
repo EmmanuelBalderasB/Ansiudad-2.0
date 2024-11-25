@@ -167,11 +167,13 @@ export default class CityScene extends BaseScene {
         this.floor = new Floor()
         this.axolotl = new Axolotl()
         this.helicopter = new Helicopter()
+        this.helicopter2 = new Helicopter()
 
         this.group.add(
             this.floor.mesh,
             this.axolotl.model,
-            this.helicopter.container
+            this.helicopter.container,
+            this.helicopter2.container
         )
 
         this.generateCars()
@@ -190,5 +192,6 @@ export default class CityScene extends BaseScene {
             this.axolotl.update()
         }
         this.helicopter.update()
+        this.helicopter2.update()
     }
 }
