@@ -22,7 +22,7 @@ export default class Camera
     setInstance()
     {
         this.instance = new THREE.PerspectiveCamera(35, this.sizes.width / this.sizes.height, 0.1, 100)
-        this.instance.position.set(0, 4, 10)
+        this.instance.position.set(0, 3, 8)
         this.vectorLookAt = new THREE.Vector3(0, 0, 0)
         this.instance.lookAt(this.vectorLookAt);
         this.scene.add(this.instance)
@@ -63,7 +63,7 @@ export default class Camera
     }
 
     moveToCityScene() {
-        gsap.to(this.instance.position, { x: 0, y: 4, z: 10, duration: 2, ease: "power2.inOut" });
+        gsap.to(this.instance.position, { x: 0, y: 3, z: 8, duration: 2, ease: "power2.inOut" });
         gsap.to(this.vectorLookAt, { x: 0, y: 0, z: 0, duration: 1.2, ease: "power2.inOut" });
     }
 
