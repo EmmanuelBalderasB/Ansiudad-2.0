@@ -125,7 +125,7 @@ export default [
     {
         name: 'baseModel',
         type: 'gltfModel',
-        path: 'models/base/base.glb'
+        path: 'models/base/base2.glb'
     },
     {
         name: 'tileMilkyTexture1',

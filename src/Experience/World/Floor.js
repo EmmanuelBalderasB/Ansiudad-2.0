@@ -17,7 +17,7 @@ export default class Floor
     setMesh()
     {
         this.mesh = this.resource.scene.clone()
-        this.mesh.scale.set(2, 2, 2)
+        this.mesh.scale.set(1.4, 1.4, 1.4)
         this.mesh.rotation.y = Math.PI
         this.mesh.receiveShadow = true
         this.mesh.position.z = -1.5
