@@ -22,5 +22,11 @@ export default class Floor
         this.mesh.receiveShadow = true
         this.mesh.position.z = -1.5
         this.mesh.position.y = 0.15
+
+        this.mesh.traverse((child) => {
+            if (child instanceof THREE.Mesh) {
+                child.receiveShadow = true
+            }
+        })
     }
 }
