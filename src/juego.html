@@ -258,15 +258,19 @@
                                 <p>Te recomiendo jugar con un mínimo de 3 equipos de al menos 4 personas cada uno y un máximo de 6 equipos de hasta 8 personas.</p>
                                 
                                 <div class="input-group">
-                                    <label for="" class="input-label input-element">¿Con cuántos equipos quieres jugar?</label>
-                                    <input type="range" min="1" max="5" step="1" class="llama-input input-element" id="number-of-teams">
-                                    <p class="input-number input-element" id="team-number"></p>
+                                    <label for="" class="input-label input-element"><black>¿Con cuántos equipos quieres jugar?</black></label>
+                                    <div class="inputs-container">
+                                        <input type="range" min="1" max="5" step="1" class="llama-input range input-element" id="number-of-teams">
+                                        <p class="input-number input-element" id="team-number"></p>
+                                    </div>
                                 </div>
 
                                 <div class="input-group">
                                     <label for="" class="input-label input-element">¿Cuántos jugadores hay en total?</label>
-                                    <input type="range" min="1" max="25" step="1" class="llama-input input-element" id="number-of-roles">
-                                    <p class="input-number input-element" id="role-number"></p>
+                                    <div class="inputs-container">
+                                        <input type="range" min="1" max="25" step="1" class="llama-input range input-element" id="number-of-roles">
+                                        <p class="input-number input-element" id="role-number"></p>
+                                    </div>
                                 </div>
 
                                 <div class="card-footer">
@@ -280,7 +284,7 @@
                                 <p>Puedo mostrarte un incidente de manera aleatoria o, si prefieres, puedes darme un tema (por ejemplo, movilidad o sistema de salud), y de esa forma podré mostrarte lo que nos depara el futuro.</p>
                                 <p>Escribe un tema o deja la casilla en blanco si quieres que sea aleatorio</p>
                                 
-                                <div class="input-group">
+                                <div class="input-group" id="theme-input-group">
                                     <label for="" class="input-label">Tema:</label>
                                     <input type="text" class="llama-input" id="theme-input">
                                 </div>
@@ -336,8 +340,8 @@
                                 <p>¡Ahora sí, todo listo para jugar!</p>
 
                                 <div class="buttons-wrapper">
-                                    <button class="regular-btn goToNextStepBtn">Volver al inicio</button>
-                                    <button class="regular-btn goToLlamaGeneration">Generar otro incidente ></button>
+                                    <button class="regular-btn goToNextStepBtn" id="back-home">Volver al inicio</button>
+                                    <button class="regular-btn goToLlamaGeneration" id="another-one">Generar otro incidente ></button>
                                 </div>
                             </div>
                         </aside>

@@ -461,18 +461,6 @@ p.guideline-description {
 .llama-input {
     width: 100%;
 }
-.input-number {
-    font-weight: 700;
-    text-align: center;
-    background-color: rgb(255, 250, 209);
-    color: #272723;
-    font-size: larger;
-    padding: 15px;
-    border-radius: 10px;
-    align-self: flex-end;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
 
 h3#loading-title {
     padding-bottom: 0;
@@ -480,7 +468,6 @@ h3#loading-title {
 img#loading-animation {
     width: 256px;
     height: auto;
-    animation: oscillate 2s infinite ease-in-out;
 }
 
 .regular-btn.goToNextStepBtn {
@@ -528,6 +515,84 @@ button#firstStepBtn.regular-btn.submitBtn {
     animation:
     l20-1 0.8s infinite linear alternate,
     l20-2 1.6s infinite linear;
+}
+div.theme-input-group {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    height: 25%;
+    margin-bottom: 1rem;
+}
+    .inputs-container {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+        .range {
+            width: 90%;
+        }
+        .input-number {
+            font-weight: 700;
+            text-align: center;
+            color: #ffffff;
+            font-weight: 900;
+            font-size: 2rem;
+            padding: 10px 15px;
+            border-radius: 10px;
+            align-self: flex-end;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            width: 10%;
+        }
+        input#theme-input {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: none;
+            background-color: rgba(255, 250, 209, 0.1);
+            color: #ffffff;
+            font-size: larger;
+            margin-top: 6px;
+        }
+        input#theme-input:active {
+            box-shadow: 0px 0px 40px rgba(148, 33, 255, 0.8);
+        }
+button#another-one {
+    background-color: rgba(148, 33, 255, 0.8);
+    padding: 1rem 2rem;
+    font-family: 'Helvetica NB';
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    color: #ffffff;
+    transition: box-shadow 0.13s ease-in-out, color 0.13s ease-in-out;
+}
+button#another-one:hover {
+    box-shadow: 0px 0px 40px rgba(148, 33, 255, 0.8);
+    color: #ffffff;
+}
+button#back-home {
+    background-color: rgba(148, 33, 255, 0.8);
+    padding: 1rem 2rem;
+    font-family: 'Helvetica NB';
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    color: #ffffff;
+    transition: box-shadow 0.13s ease-in-out, color 0.13s ease-in-out;
+}
+button#back-home:hover {
+    box-shadow: 0px 0px 40px rgba(148, 33, 255, 0.8);
+    color: #ffffff;
+}
+div.slide7 div.cards-container div.card-wrapper.fitHeight {
+    transition: box-shadow 0.13s ease-in-out;
+}
+
+div.slide7 div.cards-container div.card-wrapper.fitHeight:hover {
+    box-shadow: 0px 0px 40px rgba(148, 33, 255, 0.8);
 }
 
 @keyframes l20-1{
