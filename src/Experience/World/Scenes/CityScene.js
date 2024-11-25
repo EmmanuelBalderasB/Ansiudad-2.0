@@ -20,7 +20,7 @@ export default class CityScene extends BaseScene {
 
     static CAR_CONFIG = {
         TOTAL: 12,
-        RANGE: 4,
+        RANGE: 3,
         Z_SUBTRACT: 1.5
     };
 
