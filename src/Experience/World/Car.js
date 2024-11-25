@@ -51,7 +51,8 @@ export default class Car {
 
         this.model.traverse((child) => {
             if (child instanceof THREE.Mesh) {
-                child.castShadow = true
+                child.castShadow = true;
+                child.receiveShadow = true;
             }
         })
     }
