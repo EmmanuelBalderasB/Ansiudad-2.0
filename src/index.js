@@ -54,37 +54,39 @@ preloadImages('.grid__img').then(() => {
   init();
 });
 
-//Gallery
+if ( !window.location.pathname.includes('juego') ) {
+  // Gallery
 
-const galleryImages = document.querySelectorAll('.gallery img');
-const fullscreenOverlay = document.getElementById('fullscreenOverlay');
-const fullscreenImage = document.getElementById('fullscreenImage');
+  const galleryImages = document.querySelectorAll('.gallery img');
+  const fullscreenOverlay = document.getElementById('fullscreenOverlay');
+  const fullscreenImage = document.getElementById('fullscreenImage');
 
-galleryImages.forEach((img) => {
-  img.addEventListener('click', () => {
-    fullscreenImage.src = img.src; 
-    fullscreenOverlay.classList.add('show');
+  galleryImages.forEach((img) => {
+    img.addEventListener('click', () => {
+      fullscreenImage.src = img.src; 
+      fullscreenOverlay.classList.add('show');
+    });
   });
-});
 
-fullscreenOverlay.addEventListener('click', () => {
-  fullscreenOverlay.classList.remove('show');
-});
-
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') {
+  fullscreenOverlay.addEventListener('click', () => {
     fullscreenOverlay.classList.remove('show');
-  }
-});
-
-// Loading video
-document.addEventListener("DOMContentLoaded", function () {
-  const loader = document.getElementById("loader");
-  const video = document.getElementById("backgroundVideo");
-
-
-// Oculta el loader cuando el video está listo para reproducirse
-  video.addEventListener("loadeddata", () => {
-    loader.classList.add("hidden");
   });
-});
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      fullscreenOverlay.classList.remove('show');
+    }
+  });
+
+  // Loading video
+  document.addEventListener("DOMContentLoaded", function () {
+    const loader = document.getElementById("loader");
+    const video = document.getElementById("backgroundVideo");
+
+
+  // Oculta el loader cuando el video está listo para reproducirse
+    video.addEventListener("loadeddata", () => {
+      loader.classList.add("hidden");
+    });
+  });
+}

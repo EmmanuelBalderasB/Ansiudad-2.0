@@ -40,13 +40,13 @@ export default class Experience
         // Setup
         this.events = new GlobalEvents()
         this.appState = new AppState()
-        if (window.location.pathname.includes('juego')) this.UIManager = new UIManager()
-            this.debug = new Debug()
+        if (window.location.pathname.includes('juego')) { this.UIManager = new UIManager() }
+        this.debug = new Debug()
         this.sizes = new Sizes()
         this.time = new Time()
         this.scene = new THREE.Scene()
         this.resources = new Resources(sources)
-        if (window.location.pathname.includes('juego')) this.loader = new Loader()
+        if (window.location.pathname.includes('juego')) { this.loader = new Loader() }
         this.camera = new Camera()
         this.renderer = new Renderer()
         this.world = new World()
