@@ -125,7 +125,7 @@ export default [
     {
         name: 'baseModel',
         type: 'gltfModel',
-        path: 'models/base/base2.glb'
+        path: 'models/base/base-tex-noshader.glb'
     },
     {
         name: 'tileMilkyTexture1',
