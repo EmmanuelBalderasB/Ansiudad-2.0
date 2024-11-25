@@ -1,7 +1,8 @@
+import * as THREE from 'three'
 import BaseScene from './BaseScene.js'
 import Portal from '../Portal.js'
-import PortalPlane from '../PortalPlane.js'
-import TunnelPlane from '../TunnelPlane.js'
+import PortalFrontPlane from '../PortalFrontPlane.js'
+import PortalInsidePlane from '../PortalInsidePlane.js'
 
 export default class PortalScene extends BaseScene {
     constructor() {
@@ -12,21 +13,32 @@ export default class PortalScene extends BaseScene {
     initScene() {
         // Portal 3D model
         this.portal = new Portal()
-        this.group.add(this.portal.model)
+        this.floatingGroup = new THREE.Group()
+        this.floatingGroup.add(this.portal.model)
+        this.group.add(this.floatingGroup)
         
 
-        // Portal plane with shader
-        this.plane = new TunnelPlane()
-        this.group.add(this.plane.mesh)
-        this.plane.mesh.scale.setScalar(5)
-        this.plane.mesh.rotation.y = Math.PI / 2;
-        this.plane.mesh.position.set(0, 0.5, 0);
-        
+        // Front glow FX
+        this.frontPlane = new PortalFrontPlane()
+        this.floatingGroup.add(this.frontPlane.mesh)
+        this.frontPlane.mesh.scale.setScalar(5)
+        this.frontPlane.mesh.rotation.y = Math.PI / 2;
+        this.frontPlane.mesh.position.set(-1.5, 0.5, 0);
+
+        // Inside FX
+        this.insidePlane = new PortalInsidePlane()
+        this.floatingGroup.add(this.insidePlane.mesh)
+        this.insidePlane.mesh.scale.setScalar(7)
+        this.insidePlane.mesh.rotation.y = Math.PI / 2;
+        this.insidePlane.mesh.position.set(0, 0.5, 0);
+
     }
 
     update() {
         if(this.portal) this.portal.update()
-        if(this.plane) this.plane.update()
-
+        if(this.frontPlane) this.frontPlane.update()
+        if(this.insidePlane) this.insidePlane.update()
+        
+        this.floatingGroup.position.y = Math.sin(this.time.elapsed * 0.0015) * 0.15 - 0.1;
     }
 }
