@@ -130,3 +130,8 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+static/models/base/tex
+static/models/base/*.c4d
+static/models/base/*.psd
+static/models/base/backup
