@@ -695,7 +695,10 @@ div.slide7 div.cards-container div.card-wrapper.fitHeight:hover {
 .llama-response h3,
 .llama-response h4,
 .llama-response h5 {
-    margin-bottom: 20px;
+    margin-top: 30px;
+    padding-bottom: 5px;
+    text-decoration: underline;
+    opacity: 0.7;
 }
 
 .llama-response * {
