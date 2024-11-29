@@ -113,6 +113,13 @@ main {
         #llama-helper .text-globe button {
             margin-top: 16px;
         }
+        
+        #llama-helper .text-globe .isologo {
+            position: absolute;
+            bottom: 30px;
+            right: 20px;
+            width: 30px;
+        }
 
 
 
@@ -378,6 +385,9 @@ article#juegoContainer.pageContainer {
 .cards-container {
     position: relative;
     width: 90%;
+    height: 100%;
+    max-height: 450px;
+    margin: 10px 0;
     display: flex;
     gap: 24px;
     justify-content: center;
@@ -390,8 +400,8 @@ article#juegoContainer.pageContainer {
     .cards-container .card-wrapper {
         position: relative;
         width: 320px;
-        height: 450px;
-        padding: 30px 20px 90px;
+        height: 100%;
+        padding: 30px 20px 80px;
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
@@ -417,7 +427,8 @@ article#juegoContainer.pageContainer {
             background-color: rgba(20,20,20, 0.5);
         }
 div.card-wrapper.llama-input-cards {
-    height: 450px;
+    width: 50%;
+    max-width: 450px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -425,7 +436,7 @@ div.card-wrapper.llama-input-cards {
 div.guideline-container {
     height: 80px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-end;
 }
 
@@ -440,7 +451,7 @@ div.guideline-description-container {
 }
 
 p.guideline-description {
-    text-align: left;
+    text-align: right;
     font-size: 1.2rem;
 }
 
@@ -455,7 +466,7 @@ p.guideline-description {
 }
 
 .input-element {
-    margin-bottom: .4rem;
+    margin-bottom: 0;
 }
 
 .llama-input {
@@ -542,13 +553,14 @@ div.theme-input-group {
             padding: 10px 15px;
             border-radius: 10px;
             align-self: flex-end;
-            margin-top: 5px;
-            margin-bottom: 5px;
+            margin: 0;
             width: 10%;
         }
         input#theme-input {
+            position: relative;
             width: 100%;
             padding: 15px;
+            box-sizing: border-box;
             border-radius: 10px;
             border: none;
             background-color: rgba(255, 250, 209, 0.1);
@@ -622,6 +634,6 @@ div.slide7 div.cards-container div.card-wrapper.fitHeight:hover {
         overflow-y: scroll;
     }
     article#juegoContainer.pageContainer {
-    padding: 90px 0;
-}
+        padding: 100px 0 20px;
+    }
 }
