@@ -252,7 +252,7 @@ article#juegoContainer.pageContainer {
     }
 
 
-#slide5 .llama-instructions {
+#slide5 .llama-instructions, #slide7 .llama-instructions {
     padding-right: 0;
 }
 
@@ -433,17 +433,23 @@ article#juegoContainer.pageContainer {
             box-sizing: border-box;
             background-color: rgba(20,20,20, 0.5);
         }
+
 div.card-wrapper.llama-input-cards {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
+
 div.guideline-container {
     height: 80px;
     display: flex;
     align-items: flex-start;
     justify-content: flex-end;
+    border-bottom: 1px solid rgba(255,255,255, 0.2);
 }
+    .card-wrapper.llama-input-cards .guideline-container {
+        height: 50px;
+    }
 
 .guidelines {
     text-align: right;
@@ -614,6 +620,27 @@ div.slide7 div.cards-container div.card-wrapper.fitHeight {
 
 div.slide7 div.cards-container div.card-wrapper.fitHeight:hover {
     box-shadow: 0px 0px 40px rgba(148, 33, 255, 0.8);
+}
+
+/* Styles for container holding Llama responses */
+.llama-response {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-x: none;
+    overflow-y: auto;
+}
+
+.llama-response h1,
+.llama-response h2,
+.llama-response h3,
+.llama-response h4,
+.llama-response h5 {
+    margin-bottom: 20px;
+}
+
+.llama-response * {
+    margin-bottom: 10px;
 }
 
 @keyframes l20-1{
