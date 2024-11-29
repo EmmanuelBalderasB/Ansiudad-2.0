@@ -252,6 +252,10 @@ article#juegoContainer.pageContainer {
     }
 
 
+#slide5 .llama-instructions {
+    padding-right: 0;
+}
+
 .llama-instructions {
     position: relative;
     width: 40%;
@@ -367,14 +371,14 @@ article#juegoContainer.pageContainer {
         }
 
     .llama-wait .text-wrapper {
-        width: 400px;
+        width: 480px;
         padding: 40px 30px;
         border-radius: 25px;
         text-align: center;
-        background-color: rgba(70, 41, 65, .8);
+        /* background-color: rgba(70, 41, 65, .8);
         box-shadow: 0 0 40px #ffffff;
+        backdrop-filter: blur(10px); */
         /* animation: oscillate 2s infinite ease-in-out; */
-        backdrop-filter: blur(10px);
     }
 
         .llama-wait .text-wrapper h3 {
@@ -394,7 +398,8 @@ article#juegoContainer.pageContainer {
 }
 .cards-container.fitHeight {
     height: 100%;
-    overflow-y: scroll;
+    max-height: 520px;
+    align-items: center;
 }
 
     .cards-container .card-wrapper {
@@ -412,7 +417,9 @@ article#juegoContainer.pageContainer {
         overflow: hidden;
     }
     .cards-container .card-wrapper.fitHeight {
-        height: fit-content;
+        height: 100%;
+        max-height: 600px;
+        /* align-items: center; */
     }
 
         .cards-container .card-footer {
@@ -427,11 +434,9 @@ article#juegoContainer.pageContainer {
             background-color: rgba(20,20,20, 0.5);
         }
 div.card-wrapper.llama-input-cards {
-    width: 50%;
-    max-width: 450px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
 }
 div.guideline-container {
     height: 80px;
@@ -459,10 +464,9 @@ p.guideline-description {
     display: flex;
     flex-direction: column;
     text-align: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    height: 25%;
-    margin-bottom: 1rem;
+    margin-top: 20px;
 }
 
 .input-element {
@@ -474,11 +478,16 @@ p.guideline-description {
 }
 
 h3#loading-title {
-    padding-bottom: 0;
+    padding: 15px 30px;
+    border-radius: 20px;
+    background-color: rgba(70, 41, 65, .8);
+    box-shadow: 0 0 5px #ffffff;
+    backdrop-filter: blur(10px);
 }
 img#loading-animation {
     width: 256px;
     height: auto;
+    animation: oscillateY 2s infinite ease-in-out;
 }
 
 .regular-btn.goToNextStepBtn {
@@ -627,6 +636,11 @@ div.slide7 div.cards-container div.card-wrapper.fitHeight:hover {
     0% {box-shadow: 0 0 40px #ffffff;}
     50% {box-shadow: 0 0 40px rgba(255, 255, 255, 0);}
     100% {box-shadow: 0 0 40px #ffffff;}
+}
+@keyframes oscillateY{
+    0% {transform: translate3d(0, -10px, 0);}
+    50% {transform: translate3d(0, 20px, 0);}
+    100% {transform: translate3d(0, -10px, 0);}
 }
 
 @media (max-height: 880px) {
