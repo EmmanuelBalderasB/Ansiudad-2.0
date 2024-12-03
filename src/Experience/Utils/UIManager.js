@@ -1,7 +1,6 @@
 import Experience from '../Experience.js'
 import EventEmitter from './EventEmitter.js'
-export default class UIManager extends EventEmitter
-{
+export default class UIManager extends EventEmitter {
     constructor() {
         super()
 
@@ -41,13 +40,13 @@ export default class UIManager extends EventEmitter
         this.nextStepTriggers.push(this.startButton);
         const nextButtons = document.querySelectorAll('.goToNextStepBtn');
         nextButtons.forEach(element => { this.nextStepTriggers.push(element) });
-        this.nextStepTriggers.forEach(element => { 
+        this.nextStepTriggers.forEach(element => {
             element.addEventListener('click', this.fireNextStep.bind(this));
         });
 
         const goToLlamaBtns = document.querySelectorAll('.goToLlamaGeneration');
         goToLlamaBtns.forEach(element => { this.goToLLamaTriggers.push(element) });
-        this.goToLLamaTriggers.forEach(element => { 
+        this.goToLLamaTriggers.forEach(element => {
             element.addEventListener('click', this.fireLlamaStep.bind(this));
         });
     }
@@ -55,7 +54,7 @@ export default class UIManager extends EventEmitter
     fireNextStep() {
         this.events.trigger('nextStep');
     }
-    
+
     fireLlamaStep() {
         this.events.trigger('goToStep', [5]);
     }
@@ -118,7 +117,7 @@ export default class UIManager extends EventEmitter
         const _numberOfRoles = numOfPlayersField.value;
 
         try {
-            const response = await fetch('https://h3lv2miu1x1kda-3000.proxy.runpod.net/api/generate/', {
+            const response = await fetch('https://xje8bur9tb9xci-3000.proxy.runpod.net/api/generate/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
