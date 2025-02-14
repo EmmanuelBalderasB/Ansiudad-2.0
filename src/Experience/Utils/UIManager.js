@@ -119,8 +119,6 @@ export default class UIManager extends EventEmitter {
             const _numberOfTeams = numOfTeamsField.value;
             const _numberOfRoles = numOfPlayersField.value;
 
-            console.log('Sending prompt to server...', { prompt, _numberOfTeams, _numberOfRoles });
-
             const response = await fetch('/api/sendPrompt', {
                 method: 'POST',
                 headers: {
@@ -208,7 +206,7 @@ export default class UIManager extends EventEmitter {
             if (newStep == 0) {
                 if (!this.response) {
                     element.style.display = 'block';
-                    console.log('error');
+                    console.warn('error: response not found');
                     element.textContent = 'Error: Failed to process response, please refresh the page and try again';
                     element.style.color = 'red';
                 } else {
@@ -230,11 +228,9 @@ export default class UIManager extends EventEmitter {
         playerNumber.textContent = numOfPlayersField.value;
 
         numOfTeamsField.addEventListener('change', (e) => {
-            console.log('Number of teams:', e.target.value);
             teamNumber.textContent = e.target.value;
         })
         numOfPlayersField.addEventListener('change', (e) => {
-            console.log('Number of players:', e.target.value);
             playerNumber.textContent = e.target.value;
         })
     }
