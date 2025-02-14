@@ -4,7 +4,7 @@ Ansiudad es un juego de mesa que aborda la ecoansiedad y busca convertir la preo
 
 ---
 
-# TODO List (en orden)
+# TODO List
 
 - [x] [alex] Merge Maries (Integracion de Maries)
 - [x] [emma/alex] Loader [x]
