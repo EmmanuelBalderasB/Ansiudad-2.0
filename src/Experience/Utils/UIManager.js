@@ -1,6 +1,5 @@
 import Experience from '../Experience.js'
 import EventEmitter from './EventEmitter.js'
-import sendPromptToGroq from './sendPromptToGroq.js'
 export default class UIManager extends EventEmitter {
     constructor() {
         super()

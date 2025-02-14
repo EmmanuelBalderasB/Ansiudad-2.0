@@ -1,4 +1,4 @@
-import Groq from "groq-sdk";
+/* import Groq from "groq-sdk";
 
 const groq = new Groq({
     apiKey: process.env.GROQ_API_KEY,
@@ -111,10 +111,8 @@ export default async function sendPromptToGroq(prompt, numberOfRoles, numberOfTe
     try {
         const eventResponse = await groqChatCompletion(eventPrompt);
         const roleResponse = await groqChatCompletion(rolePrompt);
-        //console.log(roleResponse.choices[0].message.content);
         const parsedEventResponse = cleanJsonResponse(eventResponse.choices[0].message.content);
         const parsedRoleResponse = cleanJsonResponse(roleResponse.choices[0].message.content);
-        //console.log({ parsedRoleResponse });
         const combined_response = {
             success: true,
             data: {
@@ -126,4 +124,4 @@ export default async function sendPromptToGroq(prompt, numberOfRoles, numberOfTe
     } catch (error) {
         console.error(error);
     }
-}
+} */
