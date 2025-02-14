@@ -30,6 +30,10 @@ export async function POST(request, response) {
     const prompt = request.body.prompt
     const numberOfTeams = request.body.numberOfTeams
     const numberOfRoles = request.body.numberOfRoles
+    console.log("Request body:", request.body)
+    console.log("Prompt:", prompt)
+    console.log("Number of teams:", numberOfTeams)
+    console.log("Number of roles:", numberOfRoles)
     const guideline = "Solo entrega el objeto en formato JSON, omite cualquier otro texto o introduccion"
     const guideline2 =
         "No cambies los nombres de las llaves, tienen que estar como en el siquiente ejemplo para poder extraerlas con JSON"
@@ -111,10 +115,10 @@ Formato y narrativas de ejemplo:
                 roles: parsedRoleResponse,
             },
         }
-        return response.json(combinedResponse)
+        return JSON.stringify(combinedResponse)
     } catch (error) {
         console.error("Error in sendPromptToGroq:", error)
-        return response.json({ error: "Error processing the Groq request" })
+        return JSON.stringify({ error: "Error processing the Groq request" })
     }
 }
 
