@@ -115,10 +115,10 @@ Formato y narrativas de ejemplo:
                 roles: parsedRoleResponse,
             },
         }
-        return JSON.stringify(combinedResponse)
+        return response.status(200).json(combinedResponse)
     } catch (error) {
         console.error("Error in sendPromptToGroq:", error)
-        return JSON.stringify({ error: "Error processing the Groq request" })
+        return response.status(500).json({ success: false, error: error.message })
     }
 }
 
