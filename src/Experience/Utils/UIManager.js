@@ -106,17 +106,12 @@ export default class UIManager extends EventEmitter {
     async sendPrompt(e) {
         e.preventDefault();
         try {
-            // Validate the input fields that should exist when submitting
             const numOfTeamsField = document.querySelector('#number-of-teams');
             const numOfPlayersField = document.querySelector('#number-of-roles');
             const inputField = document.querySelector('#theme-input');
 
             if (!numOfTeamsField || !numOfPlayersField || !inputField) {
-                console.error('Required input fields not found', {
-                    numOfTeamsField,
-                    numOfPlayersField,
-                    inputField,
-                });
+                console.error('Required input fields not found');
                 return;
             }
 
@@ -124,9 +119,7 @@ export default class UIManager extends EventEmitter {
             const _numberOfTeams = numOfTeamsField.value;
             const _numberOfRoles = numOfPlayersField.value;
 
-            console.log('Input values:', { prompt, _numberOfTeams, _numberOfRoles });
-
-            console.log('Sending prompt to server...');
+            console.log('Sending prompt to server...', { prompt, _numberOfTeams, _numberOfRoles });
 
             const response = await fetch('/api/sendPrompt', {
                 method: 'POST',
@@ -140,21 +133,20 @@ export default class UIManager extends EventEmitter {
                 })
             });
 
-            console.log('Received response:', response);
-
             if (!response.ok) {
-                throw new Error('Invalid response format from server');
+                throw new Error(`Server responded with status: ${response.status}`);
             }
 
-            // Store response and update scenes
-            this.response = response;
-            console.log('Stored response in this.response');
+            const responseData = await response.json();
 
-            if (await response.data.events) {
-                console.log('Events found in response:', this.response.data.events);
-                // Change to step 7
+            if (!responseData.success) {
+                throw new Error(responseData.error || 'Unknown error occurred');
+            }
+
+            this.response = responseData;
+
+            if (responseData.data?.events) {
                 this.events.trigger('goToStep', [7]);
-                console.log('Triggered goToStep with step 7');
 
                 const cityScene = this.experience.world.CityScene;
                 const tunnelScene = this.experience.world.TunnelScene;
@@ -162,17 +154,13 @@ export default class UIManager extends EventEmitter {
                 cityScene.isActivated = true;
                 tunnelScene.isActivated = false;
 
-                // Now the new step should be rendered, check for display elements
                 const eventBox = document.querySelector('#llama-event');
                 const rolesBox = document.querySelector('#llama-roles');
 
-                if (eventBox) {
-                    console.log('Found eventBox, rendering events');
+                if (eventBox && responseData.data.events.events) {
                     eventBox.innerHTML = '';
-                    console.log(typeof this.response.data.events)
-                    this.response.data.events.events.forEach(event => {
-                        if (event && event.title && event.description) {
-                            console.log('Rendering event:', event);
+                    responseData.data.events.events.forEach(event => {
+                        if (event?.title && event?.description) {
                             const eventContainer = document.createElement('div');
 
                             const eventTitle = document.createElement('h3');
@@ -184,20 +172,14 @@ export default class UIManager extends EventEmitter {
                             eventContainer.appendChild(eventDescription);
 
                             eventBox.appendChild(eventContainer);
-                        } else {
-                            console.warn('Encountered an event with missing properties:', event);
                         }
                     });
-                } else {
-                    console.warn('eventBox element not found');
                 }
 
-                if (rolesBox && this.response.data.roles) {
-                    console.log('Found rolesBox, rendering roles:', this.response.data.roles);
+                if (rolesBox && responseData.data.roles?.roles) {
                     rolesBox.innerHTML = '';
-                    this.response.data.roles.roles.forEach(role => {
-                        if (role && (role.name || role.title)) {
-                            console.log('Rendering role:', role);
+                    responseData.data.roles.roles.forEach(role => {
+                        if (role?.name || role?.title) {
                             const roleContainer = document.createElement('div');
 
                             const roleTitle = document.createElement('h3');
@@ -209,13 +191,9 @@ export default class UIManager extends EventEmitter {
                             roleContainer.appendChild(rolePriorities);
 
                             rolesBox.appendChild(roleContainer);
-                        } else {
-                            console.warn('Encountered a role with missing properties:', role);
                         }
                     });
                 }
-            } else {
-                console.warn('No events found in the response');
             }
         } catch (error) {
             console.error('Error processing response:', error);
