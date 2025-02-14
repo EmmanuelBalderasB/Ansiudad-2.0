@@ -1,5 +1,6 @@
 import Experience from '../Experience.js'
 import EventEmitter from './EventEmitter.js'
+import sendPromptToGroq from './sendPromptToGroq.js'
 export default class UIManager extends EventEmitter {
     constructor() {
         super()
@@ -11,6 +12,7 @@ export default class UIManager extends EventEmitter {
         this.canvas = this.experience.canvas
         this.appState = this.experience.appState
         this.currentView = this.appState.currentStep
+        this.response = null
         this.initUI();
 
         this.addHandlers();
@@ -95,111 +97,121 @@ export default class UIManager extends EventEmitter {
             submitButton.addEventListener('click', this.sendPrompt);
         }
 
-        console.log({
+        /* console.log({
             'City Scene': this.experience.world.CityScene.isActivated,
             'Portal Scene': this.experience.world.PortalScene.isActivated,
             'Tunnel Scene': this.experience.world.TunnelScene.isActivated,
             step: newStep
-        });
+        }); */
     }
     async sendPrompt(e) {
         e.preventDefault();
-        console.log('Button clicked');
-
-        const numOfTeamsField = document.querySelector('#number-of-teams');
-        const numOfPlayersField = document.querySelector('#number-of-roles');
-        const inputField = document.querySelector('#theme-input');
-        const eventBox = document.querySelector('#llama-event');
-        const rolesBox = document.querySelector('#llama-roles');
-
-        const prompt = inputField.value.trim();
-        const _numberOfTeams = numOfTeamsField.value;
-        const _numberOfRoles = numOfPlayersField.value;
-
         try {
-            const response = await fetch('https://xje8bur9tb9xci-3000.proxy.runpod.net/api/generate/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    prompt: prompt,
-                    numberOfTeams: _numberOfTeams,
-                    numberOfRoles: _numberOfRoles,
-                })
-            });
+            // Validate the input fields that should exist when submitting
+            const numOfTeamsField = document.querySelector('#number-of-teams');
+            const numOfPlayersField = document.querySelector('#number-of-roles');
+            const inputField = document.querySelector('#theme-input');
 
-            console.log('Response:', response);
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+            if (!numOfTeamsField || !numOfPlayersField || !inputField) {
+                console.error('Required input fields not found', {
+                    numOfTeamsField,
+                    numOfPlayersField,
+                    inputField,
+                });
+                return;
             }
 
-            const responseData = await response.json();
-            console.log('Response data:', responseData);
+            const prompt = inputField.value.trim();
+            const _numberOfTeams = numOfTeamsField.value;
+            const _numberOfRoles = numOfPlayersField.value;
 
-            // Update the UI with the response
-            if (eventBox) {
-                eventBox.innerHTML = '';
-                for (let i = 0; i < responseData.data.events.length; i++) {
-                    const event = responseData.data.events[i];
-                    const eventContainer = document.createElement('div');
+            console.log('Input values:', { prompt, _numberOfTeams, _numberOfRoles });
 
-                    const eventTitle = document.createElement('h3');
-                    eventTitle.textContent = event.title;
-                    eventContainer.appendChild(eventTitle);
+            console.log('Sending prompt to server...');
+            const response = await sendPromptToGroq(prompt, _numberOfTeams, _numberOfRoles);
+            console.log('Received response:', response);
 
-                    const eventDescription = document.createElement('p');
-                    eventDescription.textContent = event.description;
-                    eventContainer.appendChild(eventDescription);
-
-                    eventBox.appendChild(eventContainer);
-                }
-
-                if (rolesBox) {
-                    rolesBox.innerHTML = '';
-                    for (let i = 0; i < responseData.data.roles.length; i++) {
-                        const role = responseData.data.roles[i];
-                        const roleContainer = document.createElement('div');
-
-                        const roleTitle = document.createElement('h3');
-                        roleTitle.textContent = role.name;
-                        roleContainer.appendChild(roleTitle);
-
-                        const rolePriorities = document.createElement('p');
-                        rolePriorities.textContent = role.priorities || role.prioridades;
-                        roleContainer.appendChild(rolePriorities);
-
-                        rolesBox.appendChild(roleContainer);
-                    }
-                }
+            if (!response || !response.data) {
+                throw new Error('Invalid response format from server');
             }
 
-            // Store response and trigger next step
-            this.response = responseData;
+            // Store response and update scenes
+            this.response = response;
+            console.log('Stored response in this.response');
 
-            // Check if we have a valid response before proceeding
-            if (this.response) {
+            if (await response.data.events) {
+                console.log('Events found in response:', this.response.data.events);
+                // Change to step 7
+                this.events.trigger('goToStep', [7]);
+                console.log('Triggered goToStep with step 7');
+
                 const cityScene = this.experience.world.CityScene;
                 const tunnelScene = this.experience.world.TunnelScene;
 
-                // Update scene states
                 cityScene.isActivated = true;
                 tunnelScene.isActivated = false;
 
-                // Trigger step 6
-                this.events.trigger('goToStep', [7]);
-            }
+                // Now the new step should be rendered, check for display elements
+                const eventBox = document.querySelector('#llama-event');
+                const rolesBox = document.querySelector('#llama-roles');
 
+                if (eventBox) {
+                    console.log('Found eventBox, rendering events');
+                    eventBox.innerHTML = '';
+                    console.log(typeof this.response.data.events)
+                    this.response.data.events.events.forEach(event => {
+                        if (event && event.title && event.description) {
+                            console.log('Rendering event:', event);
+                            const eventContainer = document.createElement('div');
+
+                            const eventTitle = document.createElement('h3');
+                            eventTitle.textContent = event.title;
+                            eventContainer.appendChild(eventTitle);
+
+                            const eventDescription = document.createElement('p');
+                            eventDescription.textContent = event.description;
+                            eventContainer.appendChild(eventDescription);
+
+                            eventBox.appendChild(eventContainer);
+                        } else {
+                            console.warn('Encountered an event with missing properties:', event);
+                        }
+                    });
+                } else {
+                    console.warn('eventBox element not found');
+                }
+
+                if (rolesBox && this.response.data.roles) {
+                    console.log('Found rolesBox, rendering roles:', this.response.data.roles);
+                    rolesBox.innerHTML = '';
+                    this.response.data.roles.roles.forEach(role => {
+                        if (role && (role.name || role.title)) {
+                            console.log('Rendering role:', role);
+                            const roleContainer = document.createElement('div');
+
+                            const roleTitle = document.createElement('h3');
+                            roleTitle.textContent = role.name || role.title;
+                            roleContainer.appendChild(roleTitle);
+
+                            const rolePriorities = document.createElement('p');
+                            rolePriorities.textContent = role.priorities || role.prioridades || '';
+                            roleContainer.appendChild(rolePriorities);
+
+                            rolesBox.appendChild(roleContainer);
+                        } else {
+                            console.warn('Encountered a role with missing properties:', role);
+                        }
+                    });
+                }
+            } else {
+                console.warn('No events found in the response');
+            }
         } catch (error) {
             console.error('Error processing response:', error);
-
             this.events.trigger('goToStep', [0]);
-            if (eventBox) {
-                eventBox.textContent = 'Error: Failed to process response';
-            }
         }
     }
+
 
     handleLlamaHelper(newStep) {
         const element = document.getElementById('llama-helper');
