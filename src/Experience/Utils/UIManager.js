@@ -128,10 +128,22 @@ export default class UIManager extends EventEmitter {
             console.log('Input values:', { prompt, _numberOfTeams, _numberOfRoles });
 
             console.log('Sending prompt to server...');
-            const response = await sendPromptToGroq(prompt, _numberOfTeams, _numberOfRoles);
+
+            const response = await fetch('/api/sendPrompt', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    prompt,
+                    _numberOfTeams,
+                    _numberOfRoles
+                })
+            });
+
             console.log('Received response:', response);
 
-            if (!response || !response.data) {
+            if (!response.ok) {
                 throw new Error('Invalid response format from server');
             }
 
