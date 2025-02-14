@@ -17,6 +17,7 @@
     "@unseenco/taxi": "^1.7.0",
     "@vercel/analytics": "^1.4.0",
     "@vercel/speed-insights": "^1.1.0",
+    "groq-sdk": "^0.15.0",
     "gsap": "^3.12.5",
     "imagesloaded": "^5.0.0",
     "lil-gui": "^0.19.2",
