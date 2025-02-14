@@ -27,24 +27,9 @@ const user = (content) => ({ role: "user", content })
 const system = (content) => ({ role: "system", content })
 
 export async function POST(request, response) {
-    try {
-        if (request.method !== "POST") {
-            return response.status(405).json({ error: "Method Not Allowed" })
-        }
-
-        const requestBody = await JSON.parse(request.body)
-        const { prompt, numberOfRoles, numberOfTeams } = requestBody
-        if (!prompt || !numberOfRoles || !numberOfTeams) {
-            return response.status(400).json({ error: "Missing required parameters: prompt, numberOfRoles, numberOfTeams" })
-        }
-
-        if (!process.env.GROQ_API_KEY) {
-            return response.status(500).json({ error: "Missing GROQ_API_KEY environment variable" })
-        }
-    } catch (error) {
-        console.error("Error in POST:", error)
-        return response.status(500).json({ error: "Error processing the request" + error })
-    }
+    const prompt = request.body.prompt
+    const numberOfTeams = request.body.numberOfTeams
+    const numberOfRoles = request.body.numberOfRoles
     const guideline = "Solo entrega el objeto en formato JSON, omite cualquier otro texto o introduccion"
     const guideline2 =
         "No cambies los nombres de las llaves, tienen que estar como en el siquiente ejemplo para poder extraerlas con JSON"
@@ -126,11 +111,10 @@ Formato y narrativas de ejemplo:
                 roles: parsedRoleResponse,
             },
         }
-
-        return response.status(200).json(combinedResponse)
+        return response.json(combinedResponse)
     } catch (error) {
         console.error("Error in sendPromptToGroq:", error)
-        return response.status(500).json({ error: "Error processing the Groq request" })
+        return response.json({ error: "Error processing the Groq request" })
     }
 }
 
