@@ -100,18 +100,16 @@ Formato y narrativas de ejemplo:
     ]
 
     try {
-        const [eventResponse, roleResponse] = await Promise.all([
-            groq.chat.completions.create({
-                messages: eventPrompt,
-                model: "llama-3.3-70b-versatile",
-                temperature: 0.9,
-            }),
-            groq.chat.completions.create({
-                messages: rolePrompt,
-                model: "llama-3.3-70b-versatile",
-                temperature: 0.9,
-            }),
-        ])
+        const eventResponse = await groq.chat.completions.create({
+            messages: eventPrompt,
+            model: "llama-3.3-70b-versatile",
+            temperature: 0.9,
+        })
+        const roleResponse = await groq.chat.completions.create({
+            messages: rolePrompt,
+            model: "llama-3.3-70b-versatile",
+            temperature: 0.9,
+        })
 
         const parsedEventResponse = cleanJsonResponse(eventResponse.choices[0].message.content)
         const parsedRoleResponse = cleanJsonResponse(roleResponse.choices[0].message.content)
