@@ -26,20 +26,25 @@ function cleanJsonResponse(str) {
 const user = (content) => ({ role: "user", content })
 const system = (content) => ({ role: "system", content })
 
-export default async (req, res) => {
-    if (req.method !== "POST") {
-        return res.status(405).json({ error: "Method Not Allowed" })
-    }
+export async function POST(request, response) {
+    try {
+        if (request.method !== "POST") {
+            return response.status(405).json({ error: "Method Not Allowed" })
+        }
 
-    const { prompt, numberOfRoles, numberOfTeams } = req.body
-    if (!prompt || !numberOfRoles || !numberOfTeams) {
-        return res.status(400).json({ error: "Missing required parameters: prompt, numberOfRoles, numberOfTeams" })
-    }
+        const requestBody = await JSON.parse(request.body)
+        const { prompt, numberOfRoles, numberOfTeams } = requestBody
+        if (!prompt || !numberOfRoles || !numberOfTeams) {
+            return response.status(400).json({ error: "Missing required parameters: prompt, numberOfRoles, numberOfTeams" })
+        }
 
-    if (!process.env.GROQ_API_KEY) {
-        return res.status(500).json({ error: "Missing GROQ_API_KEY environment variable" })
+        if (!process.env.GROQ_API_KEY) {
+            return response.status(500).json({ error: "Missing GROQ_API_KEY environment variable" })
+        }
+    } catch (error) {
+        console.error("Error in POST:", error)
+        return response.status(500).json({ error: "Error processing the request" + error })
     }
-
     const guideline = "Solo entrega el objeto en formato JSON, omite cualquier otro texto o introduccion"
     const guideline2 =
         "No cambies los nombres de las llaves, tienen que estar como en el siquiente ejemplo para poder extraerlas con JSON"
@@ -122,10 +127,10 @@ Formato y narrativas de ejemplo:
             },
         }
 
-        return res.status(200).json(combinedResponse)
+        return response.status(200).json(combinedResponse)
     } catch (error) {
         console.error("Error in sendPromptToGroq:", error)
-        return res.status(500).json({ error: "Error processing the Groq request" })
+        return response.status(500).json({ error: "Error processing the Groq request" })
     }
 }
 
